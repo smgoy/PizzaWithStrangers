@@ -11,11 +11,11 @@ PizzaWithStrangers is a web application inspired by TeaWithStrangers built using
 - [ ] Ability to host events
 - [ ] Ability to join events
 - [ ] Dashboard of joined/hosted events
-- [ ] Production README
+- [ ] [Production README](https://github.com/smgoy/PizzaWithStrangers/blob/master/README.rdoc)
 
 ## Design Docs
 
-- [View Wireframes](#)
+- [View Wireframes](https://github.com/smgoy/PizzaWithStrangers/tree/master/docs/wireframes)
 - [React Components](https://github.com/smgoy/PizzaWithStrangers/blob/master/docs/component-heirarchy.md)
 - [API Endpoints](https://github.com/smgoy/PizzaWithStrangers/blob/master/docs/api-endpoints.md)
 - [DB Schema](https://github.com/smgoy/PizzaWithStrangers/blob/master/docs/schema.md)

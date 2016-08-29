@@ -1,3 +1,4 @@
+```
 {
   currentUser: {
     id: 1,
@@ -24,3 +25,4 @@
       profile_image: "path/name"
     }
 }
+```
