@@ -1,5 +1,4 @@
 # Component Heirarchy
-------
 
 ### AuthFormContainer
 - AuthForm
@@ -30,7 +29,6 @@
 - NewEvent
 
 # Routes
-------
 
 | path                      | component           |
 | ------------------------- | ------------------- |

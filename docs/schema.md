@@ -1,8 +1,7 @@
 # Schema Information
-------
 
 ## users
-------
+
 | column name     | data type  | details                   |
 | --------------- | ---------- | ------------------------- |
 | id              | integer    | not null, primary key     |
@@ -11,7 +10,7 @@
 | password digest | string     | not null                  |
 
 ## events
-------
+
 | column name  | data type  | details               |
 | ------------ | ---------- | --------------------- |
 | id           | integer    | not null, primary key |
@@ -21,7 +20,7 @@
 | city_id      | integer    | not null, indexed     |
 
 ## cities
-------
+
 | column name  | data type  | details               |
 | ------------ | ---------- | --------------------- |
 | id           | integer    | not null, primary key |
@@ -29,7 +28,7 @@
 | image        | string     | not null              |
 
 ## profiles
-------
+
 | column name  | data type  | details                |
 | ------------ | ---------- | ---------------------- |
 | id           | integer    | not null, primary key  |
@@ -41,7 +40,7 @@
 | pofile_image | string     | not null               |
 
 ## userevents
-------
+
 | column name  | data type  | details                   |
 | ------------ | ---------- | ------------------------- |
 | id           | integer    | not null, primary key     |

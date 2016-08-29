@@ -34,10 +34,10 @@ PizzaWithStrangers is a web application inspired by TeaWithStrangers built using
 - [ ] `APIUtil` to interact with the API
 - [ ] Redux cycle for frontend authentication
 - [ ] `User` signup/signin components
-- [ ] Blank landing component after signup/signin
 - [ ] Style signup/signin components
 - [ ] Seed users
 - [ ] Review phase 1
+
 ### Phase 2: Cities and Events Model, API, and components (3 days)
 **Objective:** Cities are listed and events in those cities can be created, read, edited and destroyed through the API.
 Note model
@@ -53,6 +53,7 @@ Note model
 - [ ] Style cities page and individual cities page
 - [ ] Style individual event page
 - [ ] Seed cities and events
+
 ### Phase 3: Profiles (2 days)
 **Objective:** Users can create and update their profile. Users can view host and attendees profiles of events.
 - [ ] Seed database with a small amount of test data
@@ -64,10 +65,12 @@ Note model
 - [ ] Style form page
 - [ ] Style individual user information pages
 - [ ] Seed users and profiles
+
 ### Phase 4: Events Dashboard and guest login (1 day)
 - [ ] Create a guest login
 - [ ] Seed guest to attend particular events
 - [ ] Style dashboard so user has a convenient place where they can view all upcoming events
+
 ### Bonus Features (TBD)
 - [ ] Face mash with pizza for profile pictures (find an API)
 - [ ] Google map API integration for events

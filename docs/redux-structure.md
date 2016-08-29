@@ -1,8 +1,6 @@
 # Redux Structure
-------
 
 ## Auth Cycles
-------
 
 ### Session API Request Action
 - `signUp`
@@ -31,7 +29,6 @@
   * the `SessionReducer` removes currentUser from the application's state
 
 ## Error Cycles
-------
 
 ### Error API Response Action
 - `setErrors`
@@ -42,7 +39,6 @@
   * the `ErrorReducer` removes errors for a given form in the application's state
 
 ## Events Cycles
-------
 
 ### Events API Request Action
 - `fetchAllEvents`
