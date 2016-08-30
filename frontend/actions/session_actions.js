@@ -17,7 +17,7 @@ export const login = user => ({
 });
 
 export const logout = () => ({
-  type: sessionConstants.LOGOUT,
+  type: sessionConstants.LOGOUT
 });
 
 export const receiveCurrentUser = currentUser => ({

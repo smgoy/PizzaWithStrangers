@@ -1,10 +1,13 @@
-import React from 'react';
+import { connect } from 'react-redux';
 import Navbar from './navbar';
+import { logout } from '../../actions/session_actions';
 
-const HomeContainer = () => (
-  <div>
-    <Navbar />
-  </div>
-);
+const mapStateToProps = state => ({
+  session: state.session
+});
 
-export default HomeContainer;
+const mapDispatchToProps = dispatch => {
+  return {logout: () => dispatch(logout())};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
