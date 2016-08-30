@@ -22,11 +22,3 @@ class Api::UsersController < ApplicationController
                                  :profile_image)
   end
 end
-
-# $.ajax({
-#   url: 'api/users',
-#   method: 'POST',
-#   dataType: 'json',
-#   data: 'user: {password: 'password', email: 'email', f_name: 'sam', city: 'SF'}',
-#   success: data => console.log(data)
-# })
