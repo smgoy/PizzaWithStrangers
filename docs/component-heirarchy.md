@@ -9,36 +9,47 @@
 
 ### CitiesContainer
 - CityIndex
+- CityDetail
 
-### CityIndex
-- HostIndex
+### CityDetail
+- EventIndex
+- GroupIndex
 
-### HostContainer
-- HostDetail
-
-### NewHostContainer
-- NewHost
+### GroupsContainer
+- GroupIndex
+- GroupDetail
 
 ### EventsContainer
 - EventIndex
-
-### EventIndex
 - EventDetail
 
+### GroupDetail
+- ProfileIndex
+
+### EventDetail
+- ProfileIndex
+
+### ProfileContainer
+- ProfileIndex
+- ProfileForm
+
 ### NewEventContainer
-- NewEvent
+- EventForm
+
+### NewGroupContainer
+- GroupForm
 
 # Routes
 
-| path                      | component           |
-| ------------------------- | ------------------- |
-| "/sign-in"                | AuthFormContainer   |
-| "/sign-up"                | AuthFormContainer   |
-| "/home"                   | HomeContainer       |
-| "/cities"                 | CitiesContainer     |
-| "/cities/:id"             | CityIndex           |
-| "/host/:id"               | HostContainer       |
-| "/new-host"               | NewHostContainer    |
-| "/cities/:cityId/events"  | EventsContainer     |
-| "/events/:id"             | EventIndex          |
-| "/new-event               | NewEvent            |
+| path                          | component           |
+| ----------------------------- | ------------------- |
+| "/sign-in"                    | AuthFormContainer   |
+| "/sign-up"                    | AuthFormContainer   |
+| "/home"                       | HomeContainer       |
+| "/cities"                     | CitiesContainer     |
+| "/cities/:id"                 | CityDetail          |
+| "/cities/:city_id/groups/:id" | GroupDetail         |
+| "/cities/:city_id/events/:id" | EventDetail         |
+| "/users/:id"                  | ProfileIndex        |
+| "/new-event                   | EventForm           |
+| "/new-group                   | GroupForm           |

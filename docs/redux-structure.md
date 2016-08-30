@@ -4,15 +4,15 @@
 
 ### Session API Request Action
 - `signUp`
-  * invoked from `SignupForm` `onSubmit`
+  * invoked from `AuthForm` `onClick` of the signup button
   * `POST /api/users` is called
   * `receiveCurrentUser` is set as the success callback
 - `logIn`
-  * invoked from `LoginForm` `onSubmit`
+  * invoked from `AuthForm` `onClick` of the login button
   * `POST /api/session` is called
   * `receiveCurrentUser` is set as the callback
 - `logOut`
-  * invoked from `Navbar` `onClick`
+  * invoked from `Navbar` `onClick` of logout button
   * `DELETE /api/session` is called
   * `removeCurrentUser` is set as the success callback
 - `fetchCurrentUser`
@@ -41,8 +41,21 @@
 ## Events Cycles
 
 ### Events API Request Action
-- `fetchAllEvents`
+- `createEvent`
+  * invoked `onEnter` to `/cities/:city_id/events/:id`
+  * `POST api/events` is called
+  * `createEvent` is sent as a success callback
+- `editEvent`
+  * invoked `onEnter` to `/cities/:city_id/events/:id`
+  * `PATCH api/events/:id` is called
+  * `editEvent` is sent as a success callback
+
+### Events API Response Action
+- `receiveAllEvents`
   * invoked `onEnter` to `/cities/:id`
   * `GET api/events` is called
   * `receiveAllEvents` is sent as the success callback
-- `createEvent`
+- `receiveEvent`
+  * invoked `onEnter` to `/cities/:city_id/events/:id`
+  * `GET api/events/:id` is called
+  * `receiveEvent` is sent as the success callback

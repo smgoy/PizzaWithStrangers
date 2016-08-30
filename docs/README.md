@@ -54,25 +54,15 @@ Note model
 - [ ] Style individual event page
 - [ ] Seed cities and events
 
-### Phase 3: Profiles (2 days)
-**Objective:** Users can create and update their profile. Users can view host and attendees profiles of events.
-- [ ] Seed database with a small amount of test data
-- [ ] CRUD API for `ProfileController`
-- [ ] JBuilder views for `profiles`
-- [ ] Components for Redux loops
-  - [ ] `ProfileIndex`
-  - [ ] `ProfileForm`
-- [ ] Style form page
-- [ ] Style individual user information pages
-- [ ] Seed users and profiles
-
-### Phase 4: Events Dashboard and guest login (1 day)
+### Phase 3: Events Dashboard and guest login (2 days)
 - [ ] Create a guest login
 - [ ] Seed guest to attend particular events
 - [ ] Style dashboard so user has a convenient place where they can view all upcoming events
 
 ### Bonus Features (TBD)
+- [ ] Profile viewing available
 - [ ] Face mash with pizza for profile pictures (find an API)
 - [ ] Google map API integration for events
+- [ ] Related group sidebar
 - [ ] Chat functionality
 - [ ] Blog where people can share pizza themed pictures (infinite scroll)

@@ -2,7 +2,10 @@
 {
   currentUser: {
     id: 1,
-    email: "email@user1.com"
+    email: "userone@email.com",
+    first_name: "User",
+    city: "San Francisco",
+    host: false
   },
   forms: {
     signUp: {errors: []},
@@ -10,19 +13,18 @@
   },
   events: {
     1: {
-      lat: 77.7654,
-      lng: -122.4356,
       host_id: 1,
-    }
-  },
-  profiles: {
-    1: {
-      first_name: "User",
-      last_name: "One",
-      city: "San Francisco"
-      user_id: 1,
-      description: "First user!",
-      profile_image: "path/name"
+      city_id: 2,
+      group_id: 1,
+      date: 9/5/2016,
+      address: "160 Spear St.",
+      time: 7:00PMPST
+    },
+    groups: {
+      1: {
+        user_id: 1,
+        name: "pepperoni"
+      }
     }
 }
 ```
