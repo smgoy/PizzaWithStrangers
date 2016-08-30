@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
-//still need to configure store
+import configureStore from './store/store';
 
-import { signup, login, logout } from './util/session_api_util';
+import { login, signup, logout } from './actions/session_actions';
 
-window.signup = signup;
 window.login = login;
+window.signup = signup;
 window.logout = logout;
+window.store = configureStore();
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');

@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 export const signup = (data, success, error) => {
   $.ajax({
     url: 'api/users',
