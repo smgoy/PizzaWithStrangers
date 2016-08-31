@@ -25,7 +25,7 @@ const Navbar = ({session, logout}) => {
     <nav className="navbar navbar-default navbar-static-top">
       <div className="container">
         <div className="navbar-header">
-          <a href="#"><img src="assets/logo.png" /></a>
+          <a href="#/"><img src="assets/logo.png" /></a>
         </div>
       <ul className="nav navbar-nav navbar-right">
         <li><a href="#">Cities</a></li>
