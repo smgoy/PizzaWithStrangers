@@ -34,54 +34,82 @@ class UserForm extends React.Component {
   render() {
 
     return(
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Email:
-          <input type='text'
-                 value={this.state.email}
-                 onChange={this.update('email')}>
-          </input>
-        </label>
-        <br />
+      <div>
+        <div className="container login-greeter">
+          <div className="row">
+            <div className="col-md-10 col-md-offset-1">
+              <h2>You're almost there!</h2>
+              <h4>Just fill out your profile so you're not such a stranger.</h4>
+            </div>
+          </div>
+        </div>
 
-        <label>
-          First Name:
-          <input type='text'
-                 value={this.state.f_name}
-                 onChange={this.update('f_name')}>
-          </input>
-        </label>
-        <br />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-10 col-md-offset-1">
+              <form className="well well-sm" onSubmit={this.handleSubmit}>
 
-        <label>
-          Last Name:
-          <input type='text'
-                 value={this.state.l_name}
-                 onChange={this.update('l_name')}>
-          </input>
-        </label>
-        <br />
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <input type="text"
+                      value={this.state.email}
+                      onChange={this.update("email")}
+                      placeholder="Email"
+                      className="form-control" />
+                  </div>
+                </div>
 
-        <label>
-          City:
-          <input type='text'
-                 value={this.state.city}
-                 onChange={this.update('city')}>
-          </input>
-        </label>
-        <br />
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <input type="text"
+                      value={this.state.f_name}
+                      onChange={this.update("f_name")}
+                      placeholder="First Name"
+                      className="form-control" />
+                  </div>
+                </div>
 
-        <label>
-          description:
-          <input type='text'
-                 value={this.state.description}
-                 onChange={this.update('description')}>
-          </input>
-        </label>
-        <br />
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <input type="text"
+                      value={this.state.l_name}
+                      onChange={this.update("l_name")}
+                      placeholder="Last Name"
+                      className="form-control" />
+                  </div>
+                </div>
 
-        <input type='submit' value="Submit"></input>
-      </form>
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <input type="text"
+                      value={this.state.city}
+                      onChange={this.update("city")}
+                      placeholder="City"
+                      className="form-control" />
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <input type="text"
+                      value={this.state.description}
+                      onChange={this.update("description")}
+                      placeholder="Tell us about yourself..."
+                      className="form-control" />
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <input type="submit" value="Submit" className="btn btn-primary login-button" />
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 

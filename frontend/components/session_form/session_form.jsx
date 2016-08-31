@@ -56,31 +56,72 @@ class SessionForm extends React.Component {
 	}
 
 	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
-				Welcome to Pizza With Strangers!
-				<br/>
+		let text;
+		let submit;
+		if (this.props.formType === 'login') {
+			text = "If you're not a member yet";
+			submit = "Login";
+		} else {
+			text = "If you're already parying with us";
+			submit = "Sign Up";
+		}
 
-				Please { this.props.formType } or { this.navLink() }
+
+		return (
+			<div>
+				<div className="container login-greeter">
+					<div className="row">
+						<div className="col-md-10 col-md-offset-1">
+							<h2>Hey There!</h2>
+							<h4>Let's get going so we can start up the party.</h4>
+						</div>
+					</div>
+				</div>
+
 				{ this.renderErrors() }
 
-				<br />
-				<label> Email:
-					<input type="text"
-						value={this.state.email}
-						onChange={this.update("email")} />
-				</label>
+				<div className="container">
+					<div className="row">
+						<div className="col-md-10 col-md-offset-1">
+							<form className="well well-sm" onSubmit={this.handleSubmit}>
 
-				<br />
-				<label> Password:
-					<input type="password"
-						value={this.state.password}
-						onChange={this.update("password")} />
-				</label>
+								<div className="row">
+									<div className="col-md-10 col-md-offset-1">
+										<input type="text"
+											value={this.state.email}
+											onChange={this.update("email")}
+											placeholder="Email"
+											className="form-control" />
+									</div>
+								</div>
 
-				<br />
-				<input type="submit" value="Submit" />
-			</form>
+								<div className="row">
+									<div className="col-md-10 col-md-offset-1">
+										<input type="password"
+											value={this.state.password}
+											onChange={this.update("password")}
+											placeholder="Password"
+											className="form-control" />
+									</div>
+								</div>
+
+								<div className="row">
+									<div className="col-md-10 col-md-offset-1">
+										<input type="submit" value={submit} className="btn btn-primary login-button" />
+									</div>
+								</div>
+
+								<div className="row">
+									<div className="col-md-10 col-md-offset-1">
+										<p>{ text } { this.navLink() }</p>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		);
 	}
 
