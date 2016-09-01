@@ -8,7 +8,7 @@ const Navbar = ({session, logout}) => {
     greeting = (
       [
         <li key='1'><a>Hello, {currentUser.email}</a></li>,
-        <li key='2' onClick={logout}><a>Logout</a></li>
+        <li key='2' onClick={logout}><a href='#/'>Logout</a></li>
       ]
     );
 
@@ -28,7 +28,7 @@ const Navbar = ({session, logout}) => {
           <a href="#/"><img src="assets/logo.png" /></a>
         </div>
       <ul className="nav navbar-nav navbar-right">
-        <li><a href="#">Cities</a></li>
+        <li><a href="#/cities">Cities</a></li>
         {greeting}
       </ul>
       </div>

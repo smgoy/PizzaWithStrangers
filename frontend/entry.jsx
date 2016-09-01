@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { login, signup, logout } from './actions/session_actions';
+import { requestCities, receiveCities } from './actions/cities_actions';
 
-window.login = login;
-window.signup = signup;
-window.logout = logout;
+window.requestCities = requestCities;
+window.receiveCities = receiveCities;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
