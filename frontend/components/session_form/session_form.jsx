@@ -56,12 +56,15 @@ class SessionForm extends React.Component {
 	}
 
 	render() {
+		let welcomeText;
 		let text;
 		let submit;
 		if (this.props.formType === 'login') {
+			welcomeText = "Welcome Back!";
 			text = "If you're not yet partying with us";
 			submit = "Login";
 		} else {
+			welcomeText = "Hey There Stranger!";
 			text = "If you're already parting with us";
 			submit = "Sign Up";
 		}
@@ -72,7 +75,7 @@ class SessionForm extends React.Component {
 				<div className="container login-greeter">
 					<div className="row">
 						<div className="col-md-10 col-md-offset-1">
-							<h2>Hey There Stranger!</h2>
+							<h2>{ welcomeText }</h2>
 							<h4>Let's get going so we can start up the pizza party.</h4>
 						</div>
 					</div>

@@ -10,23 +10,24 @@ import CitiesContainer from '../cities/cities_container';
 class AppRouter extends React.Component{
   constructor(props) {
     super(props);
-    this.getCities = this.getCities.bind(this);
+    this.routes = (
+      <Route path='/' component={App}>
+        <IndexRoute component={Home} />
+        <Route path='/signup' component={SessionFormContainer} />
+        <Route path='/login' component={SessionFormContainer} />
+        <Route path='/new-profile' component={UserFormContainer} />
+        <Route path='/cities' component={CitiesContainer} onEnter={this.requestCities.bind(this)} />
+      </Route>
+    );
   }
 
-  getCities() {
+  requestCities() {
     this.props.requestCities();
   }
 
   render () {
     return(
-      <Router history={ hashHistory }>
-        <Route path='/' component={App}>
-          <IndexRoute component={Home} />
-          <Route path='/signup' component={SessionFormContainer} />
-          <Route path='/login' component={SessionFormContainer} />
-          <Route path='/new-profile' component={UserFormContainer} />
-          <Route path='/cities' component={CitiesContainer} onEnter={this.getCities}/>
-        </Route>
+      <Router history={ hashHistory } routes={this.routes}>
       </Router>
     );
   }

@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link, hashHistory } from 'react-router';
 
 const Navbar = ({session, logout}) => {
+
   const {currentUser} = session;
   let greeting;
 
@@ -34,6 +36,7 @@ const Navbar = ({session, logout}) => {
       </div>
     </nav>
   );
+
 };
 
 export default Navbar;
