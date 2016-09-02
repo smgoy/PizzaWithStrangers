@@ -14,3 +14,21 @@ City.create!(name: "Los Angeles", image: 'assets/cities/la.jpeg')
 City.create!(name: "Baltimore", image: 'assets/cities/baltimore.jpg')
 City.create!(name: "Denver", image: 'assets/cities/denver.jpg')
 City.create!(name: "Austin", image: 'assets/cities/austin.jpg')
+
+Event.create!(host_id: 1, city_id: 1, date: Time.now,
+              address: 'here', time: Time.now, seats: 5)
+
+Event.create!(host_id: 1, city_id: 1, date: Time.now,
+              address: 'here', time: Time.now, seats: 5)
+
+Event.create!(host_id: 1, city_id: 3, date: Time.now,
+              address: 'here', time: Time.now, seats: 5)
+
+Event.create!(host_id: 1, city_id: 1, date: Time.now,
+              address: 'here', time: Time.now, seats: 5)
+
+Event.create!(host_id: 1, city_id: 4, date: Time.now,
+              address: 'here', time: Time.now, seats: 5)
+
+Event.create!(host_id: 1, city_id: 4, date: Time.now,
+              address: 'here', time: Time.now, seats: 5)

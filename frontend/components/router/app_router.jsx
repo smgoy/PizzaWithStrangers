@@ -30,6 +30,7 @@ class AppRouter extends React.Component{
   requestCity(nextState) {
     const id = parseInt(nextState.params.cityId);
     this.props.requestCity(id);
+    this.props.requestEvents(id);
   }
 
   render () {

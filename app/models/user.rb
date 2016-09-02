@@ -26,6 +26,11 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  has_many :hosted_events,
+    primary_key: :id,
+    foreign_key: :host_id,
+    class_name: :Event
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user && user.valid_password?(password)

@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { requestCities, receiveCities } from './actions/cities_actions';
+import { requestEvents } from './actions/events_actions';
 
-window.requestCities = requestCities;
-window.receiveCities = receiveCities;
+window.requestEvents = requestEvents;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
