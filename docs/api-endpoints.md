@@ -38,3 +38,7 @@
 - `GET /api/profiles/:id`
 - `POST /api/users/:id/profiles`
 - `PATCH /api/profiles/:id`
+
+### Attendances
+- `POST /api/attendances/:id`
+- `DELETE /api/attendances/:id`

@@ -5,6 +5,7 @@ import Home from '../home/home';
 import SessionFormContainer from '../session_form/session_form_container';
 import UserFormContainer from '../user_form/user_form_container';
 import CitiesContainer from '../cities/cities_container';
+import CityDetailContainer from '../cities/city_detail_container';
 
 
 class AppRouter extends React.Component{
@@ -17,12 +18,18 @@ class AppRouter extends React.Component{
         <Route path='/login' component={SessionFormContainer} />
         <Route path='/new-profile' component={UserFormContainer} />
         <Route path='/cities' component={CitiesContainer} onEnter={this.requestCities.bind(this)} />
+        <Route path='/city/:cityId' component={CityDetailContainer} onEnter={this.requestCity.bind(this)} />
       </Route>
     );
   }
 
   requestCities() {
     this.props.requestCities();
+  }
+
+  requestCity(nextState) {
+    const id = parseInt(nextState.params.cityId);
+    this.props.requestCity(id);
   }
 
   render () {

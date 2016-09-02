@@ -23,6 +23,7 @@
 | host_id      | integer    | not null, indexed     |
 | city_id      | integer    | not null, indexed     |
 | group_id     | integer    | not null, indexed     |
+| attendee_id  | integer    | not null, indexed     |
 | date         | datetime   | not null              |
 | address      | string     | not null              |
 | time         | datetime   | not null              |
@@ -36,16 +37,9 @@
 | id           | integer    | not null, primary key |
 | user_id      | integer    | not null, indexed     |
 | name         | string     | not null              |
+| city_id      | string     | not null              |
 
-## groupcities
-
-| column name  | data type  | details               |
-| ------------ | ---------- | --------------------- |
-| id           | integer    | not null, primary key |
-| group_id     | integer    | not null, indexed     |
-| city_id      | string     | not null, indexed     |
-
-## groupusers
+## memberships
 
 | column name  | data type  | details               |
 | ------------ | ---------- | --------------------- |
