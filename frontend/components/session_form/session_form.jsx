@@ -6,33 +6,42 @@ class SessionForm extends React.Component {
 		super(props);
 		this.state = {
 			email: "",
-			password: ""
+			password: "",
+			errors: []
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
-	}
-
-	componentDidUpdate(){
-		this.redirectIfLoggedIn();
-	}
-
-	redirectIfLoggedIn(){
-		if (this.props.loggedIn){
-			hashHistory.push("/");
-		}
 	}
 
 	update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.loggedIn) {
+			hashHistory.push('/cities');
+		}
+
+		if (nextProps.signUpInfo) {
+			if (nextProps.signUpInfo.password.length < 6) {
+				this.setState({errors: ["Password must be at least 6 characters"]});
+			} else {
+				hashHistory.push('/new-profile');
+			}
+		}
+
+		if (nextProps.errors.length > 0) {
+			this.setState({errors: nextProps.errors});
+		}
+
+		if (this.props.formType !== nextProps.formType) {
+			this.setState({errors: []});
+		}
+	}
+
 	handleSubmit(e){
 		e.preventDefault();
 		const user = this.state;
 		this.props.processForm({user});
-
-		if (this.props.formType === "signup") {
-			hashHistory.push('/new-profile');
-		}
 	}
 
 	navLink(){
@@ -44,15 +53,11 @@ class SessionForm extends React.Component {
 	}
 
 	renderErrors(){
-		return(
-			<ul>
-				{this.props.errors.map( (error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
+		if (this.state.errors.length > 0){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	render() {
@@ -69,6 +74,16 @@ class SessionForm extends React.Component {
 			submit = "Sign Up";
 		}
 
+		let errorMessage = '';
+		let error = '';
+		if (this.renderErrors()) {
+			errorMessage = <div className="row">
+												<div className="col-md-10 col-md-offset-1">
+													<p className="error-message">{this.state.errors[0]}</p>
+												</div>
+											</div>;
+			error = ' form-danger';
+		}
 
 		return (
 			<div>
@@ -81,8 +96,6 @@ class SessionForm extends React.Component {
 					</div>
 				</div>
 
-				{ this.renderErrors() }
-
 				<div className="container">
 					<div className="row">
 						<div className="col-md-10 col-md-offset-1">
@@ -94,7 +107,7 @@ class SessionForm extends React.Component {
 											value={this.state.email}
 											onChange={this.update("email")}
 											placeholder="Email"
-											className="form-control" />
+											className={`form-control${error}`} />
 									</div>
 								</div>
 
@@ -104,9 +117,11 @@ class SessionForm extends React.Component {
 											value={this.state.password}
 											onChange={this.update("password")}
 											placeholder="Password"
-											className="form-control" />
+											className={`form-control${error}`} />
 									</div>
 								</div>
+
+								{errorMessage}
 
 								<div className="row">
 									<div className="col-md-10 col-md-offset-1">

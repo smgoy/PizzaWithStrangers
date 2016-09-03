@@ -32,6 +32,10 @@ class UserForm extends React.Component {
 	}
 
   render() {
+    const {cities} = this.props;
+    const cityList = Object.keys(cities).map( id => (
+      <option onChange={this.update("city")} key={cities[id].name}>{cities[id].name}</option>
+    ));
 
     return(
       <div>
@@ -81,11 +85,10 @@ class UserForm extends React.Component {
 
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
-                    <input type="text"
-                      value={this.state.city}
-                      onChange={this.update("city")}
-                      placeholder="City"
-                      className="form-control" />
+                    <select className="form-control">
+                      <option value="" disabled selected>Select your city</option>
+                      {cityList}
+                    </select>
                   </div>
                 </div>
 
