@@ -21,6 +21,10 @@ class UserForm extends React.Component {
     this.props.signup({user});
   }
 
+  componentDidMount() {
+		this.props.requestCities();
+	}
+
   componentWillReceiveProps(newProps){
     if (newProps.loggedIn) {
       hashHistory.push("/cities");

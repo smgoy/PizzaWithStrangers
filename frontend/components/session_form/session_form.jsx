@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
 			errors: []
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.demo = this.demo.bind(this);
 	}
 
 	update(field){
@@ -50,6 +51,19 @@ class SessionForm extends React.Component {
 		} else {
 			return <Link to="/login">log in instead</Link>;
 		}
+	}
+
+	demo(e) {
+		e.preventDefault();
+		const guest = {
+										user:
+											{
+												email: "guest_user@example.com",
+												password: "guestPassword"
+											}
+									};
+
+		this.props.login(guest);
 	}
 
 	renderErrors(){
@@ -124,8 +138,9 @@ class SessionForm extends React.Component {
 								{errorMessage}
 
 								<div className="row">
-									<div className="col-md-10 col-md-offset-1">
+									<div className="col-md-10 col-md-offset-1 login-demo">
 										<input type="submit" value={submit} className="btn btn-primary login-button" />
+										<input onClick={this.demo} type="submit" value='Demo' className="btn btn-primary login-button" />
 									</div>
 								</div>
 

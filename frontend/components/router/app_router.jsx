@@ -13,7 +13,7 @@ class AppRouter extends React.Component{
     super(props);
     this.routes = (
       <Route path='/' component={App}>
-        <IndexRoute component={Home} onEnter={this.requestCities.bind(this)} />
+        <IndexRoute component={Home} />
         <Route path='/signup' component={SessionFormContainer} onEnter={this.redirectIfLoggedIn.bind(this)} />
         <Route path='/login' component={SessionFormContainer}
                              onEnter={this.redirectIfLoggedIn.bind(this)}
