@@ -5,7 +5,8 @@ export const sessionConstants = {
   INIT_SIGNUP: "INIT_SIGNUP",
   RECEIVE_CURRENT_USER: 'RECEIVE_CURRENT_USER',
   RECEIVE_ERRORS: 'RECEIVE_ERRORS',
-  CLEAR_ERRORS: 'CLEAR_ERRORS'
+  CLEAR_ERRORS: 'CLEAR_ERRORS',
+  CLEAR_USER: 'CLEAR_USER'
 };
 
 export const signup = user => ({
@@ -39,4 +40,8 @@ export const receiveErrors = errors => ({
 
 export const clearErrors = () => ({
   type: sessionConstants.CLEAR_ERRORS
+});
+
+export const clearUser = () => ({
+  type: sessionConstants.CLEAR_USER
 });

@@ -5,6 +5,8 @@ const UserReducer = (state = {}, action) => {
   switch (action.type) {
     case sessionConstants.INIT_SIGNUP:
       return action.user;
+    case sessionConstants.CLEAR_USER:
+      return {};
     default:
       return state;
   }

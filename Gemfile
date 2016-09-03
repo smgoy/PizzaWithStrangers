@@ -11,6 +11,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'faker', '1.6.6'
+
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor' # error feedback
