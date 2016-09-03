@@ -23,19 +23,56 @@ class UserForm extends React.Component {
 
   componentWillReceiveProps(newProps){
     if (newProps.loggedIn) {
-      hashHistory.push("/");
+      hashHistory.push("/cities");
     }
+	}
+
+  renderErrors(){
+		if (this.props.errors.length > 0){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
   update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
 	}
 
+  wrapErrors(errorElement) {
+    return(
+      <div className="row">
+				<div className="col-md-10 col-md-offset-1">
+          {errorElement}
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const {cities} = this.props;
     const cityList = Object.keys(cities).map( id => (
-      <option onChange={this.update("city")} key={cities[id].name}>{cities[id].name}</option>
+      <option key={cities[id].name}>{cities[id].name}</option>
     ));
+
+    let emailErrors = [];
+    let fNameError = '';
+    let cityError = '';
+    let errorClass = '';
+    let requiredFields = '';
+    if (this.renderErrors()) {
+      errorClass = ' form-danger';
+      requiredFields = <p className="error-message">* required fields</p>;
+      this.props.errors.forEach( (error, i) => {
+        if (error.includes('Email')) {
+          emailErrors.push(<p key={i} className="error-message">{error}</p>);
+        } else if (error.includes('City')){
+          cityError = <p className="error-message">You must choose a city</p>;
+        } else if (error.includes('F name')){
+          fNameError = <p className="error-message">You must enter your first name</p>;
+        }
+      });
+    }
 
     return(
       <div>
@@ -53,15 +90,19 @@ class UserForm extends React.Component {
             <div className="col-md-10 col-md-offset-1">
               <form className="well well-sm" onSubmit={this.handleSubmit}>
 
+                {this.wrapErrors(requiredFields)}
+
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
                     <input type="text"
                       value={this.state.email}
                       onChange={this.update("email")}
                       placeholder="Email"
-                      className="form-control" />
+                      className={`form-control${errorClass}`} />
                   </div>
                 </div>
+
+                {this.wrapErrors(emailErrors)}
 
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
@@ -69,9 +110,11 @@ class UserForm extends React.Component {
                       value={this.state.f_name}
                       onChange={this.update("f_name")}
                       placeholder="First Name"
-                      className="form-control" />
+                      className={`form-control${errorClass}`} />
                   </div>
                 </div>
+
+                {this.wrapErrors(fNameError)}
 
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
@@ -85,20 +128,18 @@ class UserForm extends React.Component {
 
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
-                    <select className="form-control">
+                    <select onChange={this.update("city")} className={`form-control${errorClass}`}>
                       <option value="" disabled selected>Select your city</option>
                       {cityList}
                     </select>
                   </div>
                 </div>
 
+                {this.wrapErrors(cityError)}
+
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
-                    <input type="text"
-                      value={this.state.description}
-                      onChange={this.update("description")}
-                      placeholder="Tell us about yourself..."
-                      className="form-control" />
+                    <textarea onChange={this.update("description")} placeholder="Tell us about yourself..." className="form-control" rows="5">{this.state.description}</textarea>
                   </div>
                 </div>
 

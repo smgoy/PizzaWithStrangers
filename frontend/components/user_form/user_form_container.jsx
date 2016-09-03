@@ -6,6 +6,7 @@ const mapStateToProps = state => ({
   user: state.user,
   cities: state.cities,
   currentUser: state.session.currentUser,
+  errors: state.session.errors,
   loggedIn: Boolean(state.session.currentUser)
 });
 
