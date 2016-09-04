@@ -8,7 +8,7 @@
 
 #guest account:
 User.create!(email: "guest_user@example.com", password: "guestPassword",
-             f_name: "Guest", city: "San Francisco")
+             f_name: "Guest", city: "San Francisco", host: true)
 
 City.create!(name: "San Francisco", image: 'assets/cities/sf.jpeg')
 City.create!(name: "Boston", image: 'assets/cities/boston.jpeg')
