@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import { requestEvents } from './actions/events_actions';
+import { login } from './actions/session_actions';
 
-window.requestEvents = requestEvents;
+window.login = login;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

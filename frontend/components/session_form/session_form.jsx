@@ -20,7 +20,6 @@ class SessionForm extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.loggedIn) {
-			debugger;
 			hashHistory.push(`/city/${nextProps.currentUser.city_id}`);
 		}
 

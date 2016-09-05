@@ -10,6 +10,14 @@
 User.create!(email: "guest_user@example.com", password: "guestPassword",
              f_name: "Guest", city_id: 1, host: true)
 
+Attendance.create!(user_id: 1, event_id: 1)
+Attendance.create!(user_id: 1, event_id: 2)
+Attendance.create!(user_id: 1, event_id: 3)
+Attendance.create!(user_id: 1, event_id: 4)
+Attendance.create!(user_id: 1, event_id: 5)
+Attendance.create!(user_id: 1, event_id: 6)
+Attendance.create!(user_id: 1, event_id: 7)
+
 City.create!(name: "San Francisco", image: 'assets/cities/sf.jpeg')
 City.create!(name: "Boston", image: 'assets/cities/boston.jpeg')
 City.create!(name: "DC", image: 'assets/cities/dc.jpeg')

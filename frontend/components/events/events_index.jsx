@@ -3,6 +3,14 @@ import { withRouter } from 'react-router';
 
 class EventsIndex extends React.Component {
 
+  joinEvent(e) {
+    e.preventDefault();
+    const eventId = $(e.currentTarget).data('id');
+    const userId = this.props.currentUser.id;
+    const attendance = { attendance: { event_id: eventId, user_id: userId } };
+    this.props.createAttendance(attendance);
+  }
+
   render() {
     const {events} = this.props;
 
@@ -13,7 +21,7 @@ class EventsIndex extends React.Component {
         <p className="event-text">{events[id].date}</p>
         <p className="event-text">{events[id].time}</p>
         <p className="event-text">Available Seats: {events[id].seats}</p>
-        <a className="btn btn-primary">Join the Party</a>
+        <a data-id={id} onClick={this.joinEvent.bind(this)} className="btn btn-primary">Join the Party</a>
         </div>
     ));
 

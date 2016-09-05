@@ -1,5 +1,6 @@
 import merge from 'lodash.merge';
 import { sessionConstants } from '../actions/session_actions';
+import { attendanceConstants } from '../actions/attendance_actions';
 
 const _nullUser = Object.freeze({
   currentUser: null,
@@ -19,6 +20,17 @@ const SessionReducer = (state = _nullUser, action) => {
       return merge({}, _nullUser, { errors });
     case sessionConstants.CLEAR_ERRORS:
       return merge({}, state, { errors: [] });
+    case attendanceConstants.CREATE_USER_ATTENDANCE: {
+      let attendances = state.currentUser.attendances.slice();
+      attendances.push(action.attendance.id);
+      return merge({}, state, { currentUser: { attendances } });
+    }
+    case attendanceConstants.DESTROY_USER_ATTENDANCE: {
+      let attendances = state.currentUser.attendances.slice();
+      let index = attendances.indexOf(action.attendance.id);
+      attendances.slice(index, 1);
+      return merge({}, state, { currentUser: { attendances } });
+    }
     default:
       return state;
   }
