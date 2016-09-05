@@ -1,4 +1,5 @@
 import React from 'react';
+import typed from 'typed';
 import { Link, hashHistory } from 'react-router';
 
 class SessionForm extends React.Component {
@@ -19,7 +20,8 @@ class SessionForm extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.loggedIn) {
-			hashHistory.push('/cities');
+			debugger;
+			hashHistory.push(`/city/${nextProps.currentUser.city_id}`);
 		}
 
 		if (nextProps.signUpInfo) {
@@ -62,6 +64,9 @@ class SessionForm extends React.Component {
 												password: "guestPassword"
 											}
 									};
+
+		// console.log(typeof typed);
+		// $(".demo-type").typed();
 
 		this.props.login(guest);
 	}
@@ -121,7 +126,7 @@ class SessionForm extends React.Component {
 											value={this.state.email}
 											onChange={this.update("email")}
 											placeholder="Email"
-											className={`form-control${error}`} />
+											className={`demo-type form-control${error}`} />
 									</div>
 								</div>
 

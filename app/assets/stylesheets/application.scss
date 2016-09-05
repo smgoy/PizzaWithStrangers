@@ -160,3 +160,23 @@ body {
   left: 62px;
   color: white;
 }
+
+.events-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.event-container {
+  border: 1px solid black;
+  height: 225px;
+  width: 175px;
+  margin: 20px;
+}
+
+.event-text {
+  z-index: 1;
+}

@@ -9,7 +9,7 @@ class UserForm extends React.Component {
       password: props.user.user.password,
       f_name: '',
       l_name: '',
-      city: '',
+      city_id: '',
       description: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,7 @@ class UserForm extends React.Component {
 
   componentWillReceiveProps(newProps){
     if (newProps.loggedIn) {
-      hashHistory.push("/cities");
+      hashHistory.push(`/city/${newProps.currentUser.city_id}`);
     }
 	}
 
@@ -39,8 +39,15 @@ class UserForm extends React.Component {
 		}
 	}
 
-  update(field){
-		return e => { this.setState({[field]: e.currentTarget.value }); };
+  update(field, e){
+    let val;
+    if (field === 'city_id') {
+      val = $(e.currentTarget).find(":selected").data("id");
+    } else {
+      val = e.currentTarget.value;
+    }
+
+    this.setState({[field]: val});
 	}
 
   wrapErrors(errorElement) {
@@ -56,7 +63,7 @@ class UserForm extends React.Component {
   render() {
     const {cities} = this.props;
     const cityList = Object.keys(cities).map( id => (
-      <option key={cities[id].name}>{cities[id].name}</option>
+      <option data-id={id} key={cities[id].name}>{cities[id].name}</option>
     ));
 
     let emailErrors = [];
@@ -100,7 +107,7 @@ class UserForm extends React.Component {
                   <div className="col-md-10 col-md-offset-1">
                     <input type="text"
                       value={this.state.email}
-                      onChange={this.update("email")}
+                      onChange={this.update.bind(this, "email")}
                       placeholder="Email"
                       className={`form-control${errorClass}`} />
                   </div>
@@ -112,7 +119,7 @@ class UserForm extends React.Component {
                   <div className="col-md-10 col-md-offset-1">
                     <input type="text"
                       value={this.state.f_name}
-                      onChange={this.update("f_name")}
+                      onChange={this.update.bind(this, "f_name")}
                       placeholder="First Name"
                       className={`form-control${errorClass}`} />
                   </div>
@@ -124,7 +131,7 @@ class UserForm extends React.Component {
                   <div className="col-md-10 col-md-offset-1">
                     <input type="text"
                       value={this.state.l_name}
-                      onChange={this.update("l_name")}
+                      onChange={this.update.bind(this, "l_name")}
                       placeholder="Last Name"
                       className="form-control" />
                   </div>
@@ -132,7 +139,7 @@ class UserForm extends React.Component {
 
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
-                    <select onChange={this.update("city")} className={`form-control${errorClass}`}>
+                    <select onChange={this.update.bind(this, "city_id")} className={`form-control${errorClass}`}>
                       <option value="" disabled selected>Select your city</option>
                       {cityList}
                     </select>
@@ -143,7 +150,7 @@ class UserForm extends React.Component {
 
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
-                    <textarea onChange={this.update("description")} placeholder="Tell us about yourself..." className="form-control" rows="5">{this.state.description}</textarea>
+                    <textarea onChange={this.update.bind(this, "description")} placeholder="Tell us about yourself..." className="form-control" rows="5">{this.state.description}</textarea>
                   </div>
                 </div>
 

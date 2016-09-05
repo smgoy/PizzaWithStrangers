@@ -7,5 +7,6 @@
     json.time event.time
     json.image event.image
     json.seats event.seats
+    json.name event.name
   end
 end

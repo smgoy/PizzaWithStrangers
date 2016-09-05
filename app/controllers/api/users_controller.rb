@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
                                  :email,
                                  :f_name,
                                  :l_name,
-                                 :city,
+                                 :city_id,
                                  :description,
                                  :profile_image)
   end

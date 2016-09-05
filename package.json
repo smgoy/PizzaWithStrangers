@@ -33,6 +33,7 @@
     "react-router": "^2.7.0",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
+    "typed": "^0.3.3",
     "webpack": "^1.13.2"
   },
   "engines": {

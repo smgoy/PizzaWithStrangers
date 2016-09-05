@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902165850) do
+ActiveRecord::Schema.define(version: 20160904220205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160902165850) do
     t.integer  "seats",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   add_index "events", ["city_id"], name: "index_events_on_city_id", using: :btree
@@ -44,14 +45,15 @@ ActiveRecord::Schema.define(version: 20160902165850) do
     t.string   "password_digest", null: false
     t.string   "f_name",          null: false
     t.string   "l_name"
-    t.string   "city",            null: false
     t.text     "description"
     t.string   "pofile_image"
     t.boolean  "host",            null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "city_id"
   end
 
+  add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
 

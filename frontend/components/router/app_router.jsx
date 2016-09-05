@@ -21,10 +21,16 @@ class AppRouter extends React.Component{
         <Route path='/new-profile' component={UserFormContainer}
                                    onEnter={this.redirectIfNoUser.bind(this)}
                                    onLeave={this.clearUser.bind(this)} />
-        <Route path='/cities' component={CitiesContainer} onEnter={this.requestCities.bind(this)} />
+        <Route path='/cities' component={CitiesContainer}
+                              onEnter={this.requestCities.bind(this)}
+                              onLeave={this.clearCity.bind(this)} />
         <Route path='/city/:cityId' component={CityDetailContainer} onEnter={this.requestCity.bind(this)} />
       </Route>
     );
+  }
+
+  clearCity() {
+    this.props.clearCity();
   }
 
   clearErrors() {

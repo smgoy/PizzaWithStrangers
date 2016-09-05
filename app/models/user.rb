@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
-  validates :f_name, :city, presence: true
+  validates :f_name, :city_id, presence: true
   validates :host, inclusion: { in: [true, false] }
 
   attr_reader :password

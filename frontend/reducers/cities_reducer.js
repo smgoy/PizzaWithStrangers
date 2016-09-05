@@ -14,6 +14,8 @@ export const CityReducer = (state = {}, action) => {
   switch (action.type) {
     case citiesConstants.RECEIVE_CITY:
       return action.city;
+    case citiesConstants.CLEAR_CITY:
+      return {};
     default:
       return state;
   }

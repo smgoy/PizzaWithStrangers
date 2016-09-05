@@ -3,6 +3,7 @@ export const citiesConstants = {
   RECEIVE_CITIES: "RECEIVE_CITIES",
   REQUEST_CITY: "REQUEST_CITY",
   RECEIVE_CITY: "RECEIVE_CITY",
+  CLEAR_CITY: "CLEAR_CITY"
 };
 
 export const requestCities = () => ({
@@ -19,8 +20,11 @@ export const requestCity = id => ({
   id
 });
 
-
 export const receiveCity = city => ({
   type: citiesConstants.RECEIVE_CITY,
   city
+});
+
+export const clearCity = () => ({
+  type: citiesConstants.CLEAR_CITY
 });

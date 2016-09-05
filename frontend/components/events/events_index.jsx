@@ -7,13 +7,17 @@ class EventsIndex extends React.Component {
     const {events} = this.props;
 
     const eventList = Object.keys(events).map( id => (
-      <li key={id}>{events[id].host_id}</li>
+      <div key={id} className='event-container'>
+        <p className='event-text'>{events[id].host_id}</p>
+      </div>
     ));
 
     return(
-      <ul>
-        {eventList}
-      </ul>
+      <div className="container">
+        <div className="events-container">
+          {eventList}
+        </div>
+      </div>
     );
   }
 }

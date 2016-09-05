@@ -1,1 +1,1 @@
-json.extract! user, :id, :f_name
+json.extract! user, :id, :f_name, :city_id
