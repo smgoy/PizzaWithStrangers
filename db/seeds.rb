@@ -8,7 +8,7 @@
 
 #guest account:
 User.create!(email: "guest_user@example.com", password: "guestPassword",
-             f_name: "Guest", city: "San Francisco", host: true)
+             f_name: "Guest", city_id: 1, host: true)
 
 City.create!(name: "San Francisco", image: 'assets/cities/sf.jpeg')
 City.create!(name: "Boston", image: 'assets/cities/boston.jpeg')
@@ -19,20 +19,20 @@ City.create!(name: "Baltimore", image: 'assets/cities/baltimore.jpg')
 City.create!(name: "Denver", image: 'assets/cities/denver.jpg')
 City.create!(name: "Austin", image: 'assets/cities/austin.jpg')
 
-Event.create!(host_id: 1, city_id: 1, date: Time.now,
-              address: 'here', time: Time.now, seats: 5)
+1.upto(100) do
+  city = [1,2,3,4,5,6,7,8].sample
+  address = Faker::Address.street_address
+  date = Faker::Date.between(Date.today, 1.year.from_now)
+  time = Faker::Time.between(date, date, :all)
+  seats = [*5..10].sample
+  name = Faker::Superhero.name
 
-Event.create!(host_id: 1, city_id: 1, date: Time.now,
-              address: 'here', time: Time.now, seats: 5)
-
-Event.create!(host_id: 1, city_id: 3, date: Time.now,
-              address: 'here', time: Time.now, seats: 5)
-
-Event.create!(host_id: 1, city_id: 1, date: Time.now,
-              address: 'here', time: Time.now, seats: 5)
-
-Event.create!(host_id: 1, city_id: 4, date: Time.now,
-              address: 'here', time: Time.now, seats: 5)
-
-Event.create!(host_id: 1, city_id: 4, date: Time.now,
-              address: 'here', time: Time.now, seats: 5)
+  Event.create!(host_id: 1,
+                city_id: city,
+                date: date,
+                address: address,
+                time: time,
+                seats: seats,
+                image: "assets/pizza_event.jpg",
+                name: name)
+end

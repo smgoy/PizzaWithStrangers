@@ -12,6 +12,7 @@
 #  seats      :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  name       :string
 #
 
 class Event < ActiveRecord::Base
@@ -25,4 +26,10 @@ class Event < ActiveRecord::Base
 
   belongs_to :city
   
+  has_many :attendances
+
+  has_many :attendees,
+    through: :attendances,
+    source: :user
+
 end

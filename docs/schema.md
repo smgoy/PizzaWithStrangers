@@ -10,7 +10,7 @@
 | password_digest | string     | not null                  |
 | f_name          | string     | not null                  |
 | l_name          | string     |                           |
-| city            | string     | not null                  |
+| city_id         | integer    | not null                  |
 | description     | text       |                           |
 | pofile_image    | string     |                           |
 | host            | boolean    | not null                  |
@@ -25,7 +25,6 @@
 | date         | datetime   | not null              |
 | address      | string     | not null              |
 | time         | datetime   | not null              |
-| image        | string     |                       |
 | seats        | integer    | not null              |
 
 ## cities

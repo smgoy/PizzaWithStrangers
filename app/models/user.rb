@@ -8,12 +8,12 @@
 #  password_digest :string           not null
 #  f_name          :string           not null
 #  l_name          :string
-#  city            :string           not null
 #  description     :text
 #  pofile_image    :string
 #  host            :boolean          not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  city_id         :integer
 #
 
 class User < ActiveRecord::Base
@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :host_id,
     class_name: :Event
+
+  has_many :attendances
+
+  has_many :events, through: :attendances
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
