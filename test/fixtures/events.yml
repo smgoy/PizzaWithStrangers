@@ -5,7 +5,6 @@
 #  id         :integer          not null, primary key
 #  host_id    :integer          not null
 #  city_id    :integer          not null
-#  date       :datetime         not null
 #  address    :string           not null
 #  time       :datetime         not null
 #  image      :string

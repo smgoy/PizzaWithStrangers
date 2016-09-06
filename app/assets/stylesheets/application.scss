@@ -11,6 +11,10 @@ body {
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
+a {
+  text-decoration: none;
+}
+
 .navbar-default {
   background-color: rgba(169,54,41,.9);
   border: 0;
@@ -152,6 +156,8 @@ body {
   width: 100%;
   overflow: hidden;
   position: relative;
+  border: 0;
+  border-radius: 0;
 }
 
 .cover-text {
@@ -161,27 +167,37 @@ body {
   color: white;
 }
 
-.events-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin-top: 30px;
-  margin-bottom: 30px;
+.event-header-text {
+  color: rgba(169,54,41,.9);
+  margin-bottom: 3px;
 }
 
-.event-container {
+.event-header-container {
+  box-shadow: 0 3px 0 0 rgba(169,54,41,.9);
+  max-width: 600px;
+  margin-left: 100px;
+}
+
+.new-event {
+  color: black;
   border: 1px solid black;
-  height: 300px;
-  width: 250px;
-  margin: 20px;
+  border-radius: 3px;
+  padding: 5px;
+  float: right;
 }
 
-.event-text {
-  margin: 0;
+.new-event:hover {
+  background-color: rgba(169,54,41,.9);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-// .flex-container {
-//   display: flex;
-//   justify-content: space-around;
-// }
+.event-form-container {
+  position: absolute;
+  background-color: black;
+  left: 50%;
+  width: 400px;
+  height: 500px;
+  z-index: 1;
+}

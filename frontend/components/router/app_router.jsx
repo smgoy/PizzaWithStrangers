@@ -6,6 +6,7 @@ import SessionFormContainer from '../session_form/session_form_container';
 import UserFormContainer from '../user_form/user_form_container';
 import CitiesContainer from '../cities/cities_container';
 import CityDetailContainer from '../cities/city_detail_container';
+import EventForm from '../events/event_form';
 
 
 class AppRouter extends React.Component{
@@ -25,6 +26,7 @@ class AppRouter extends React.Component{
                               onEnter={this.requestCities.bind(this)}
                               onLeave={this.clearCity.bind(this)} />
         <Route path='/city/:cityId' component={CityDetailContainer} onEnter={this.requestCity.bind(this)} />
+          <Route path='/city/:cityId/new-event' component={EventForm} />
       </Route>
     );
   }

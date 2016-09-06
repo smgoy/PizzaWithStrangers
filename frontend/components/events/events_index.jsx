@@ -11,6 +11,10 @@ class EventsIndex extends React.Component {
     this.props.createAttendance(attendance);
   }
 
+  showEventForm() {
+
+  }
+
   render() {
     const {events} = this.props;
 
@@ -27,14 +31,19 @@ class EventsIndex extends React.Component {
 
     return(
       <div className="container">
-        <div className="flex-container">
-          <div className="events-container">
-            {eventList}
-          </div>
+        <a onClick={this.showEventForm.bind(this)} className="new-event">+ New Event</a>
+        <div className="event-header-container">
+          <h2 className="event-header-text">this week.</h2>
+        </div>
+        <div className="event-header-container">
+          <h2 className="event-header-text">this month.</h2>
+        </div>
+        <div className="event-header-container">
+          <h2 className="event-header-text">this year.</h2>
         </div>
       </div>
     );
   }
 }
 
-export default EventsIndex;
+export default withRouter(EventsIndex);
