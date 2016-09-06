@@ -6,3 +6,14 @@ export const requestEvents = (success, cityId) => {
     success
   });
 };
+
+export const createEvent = (success, error, data) => {
+  $.ajax({
+    url: `api/events`,
+    method: 'POST',
+    dataType: 'json',
+    data,
+    success,
+    error
+  });
+};

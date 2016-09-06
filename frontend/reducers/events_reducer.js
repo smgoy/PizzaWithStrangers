@@ -9,3 +9,12 @@ export const EventsReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const EventErrors = (state = [], action) => {
+  switch (action.type) {
+    case eventsConstants.RECEIVE_EVENT_ERRORS:
+      return action.errors;
+    default:
+      return state;
+  }
+};

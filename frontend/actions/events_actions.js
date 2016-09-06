@@ -1,7 +1,8 @@
 export const eventsConstants = {
   REQUEST_EVENTS: "REQUEST_EVENTS",
   RECEIVE_EVENTS: "RECEIVE_EVENTS",
-  CREATE_EVENT: "CREATE_EVENT"
+  CREATE_EVENT: "CREATE_EVENT",
+  RECEIVE_EVENT_ERRORS: "RECEIVE_EVENT_ERRORS"
 };
 
 export const requestEvents = cityId => ({
@@ -17,4 +18,9 @@ export const receiveEvents = events => ({
 export const createEvent = event => ({
   type: eventsConstants.CREATE_EVENT,
   event
+});
+
+export const receiveEventErrors = errors => ({
+  type: eventsConstants.RECEIVE_EVENT_ERRORS,
+  errors
 });

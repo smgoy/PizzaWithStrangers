@@ -1,15 +1,24 @@
-import { requestEvents } from '../util/events_api_util';
+import { requestEvents, createEvent } from '../util/events_api_util';
 import { eventsConstants,
-         receiveEvents } from '../actions/events_actions';
+         receiveEvents,
+         receiveEventErrors } from '../actions/events_actions';
 
 const EventsMiddleware = ({dispatch}) => next => action => {
+  const successCallback = events => dispatch(receiveEvents(events));
+  const errorsCallback = e => {
+    const errors = e.responseJSON;
+    dispatch(receiveEventErrors(errors));
+  };
   switch (action.type) {
     case eventsConstants.REQUEST_EVENTS: {
-      const success = events => dispatch(receiveEvents(events));
       const cityId = action.cityId;
-      requestEvents(success, cityId);
+      requestEvents(successCallback, cityId);
       return next(action);
     }
+    case eventsConstants.CREATE_EVENT:
+      const event = action.event;
+      createEvent(successCallback, errorsCallback, event);
+      return next(action);
     default:
       return next(action);
   }
