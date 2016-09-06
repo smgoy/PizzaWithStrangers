@@ -178,6 +178,55 @@ a {
   margin-left: 100px;
 }
 
+.event-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 600px;
+  align-items: center;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 600px;
+  align-items: center;
+}
+
+.join {
+  margin: 0;
+  padding: 0 5px;
+  border-radius: 3px;
+  border: 1px solid black;
+  color: black;
+  margin: 1px;
+}
+
+.join:hover {
+  background-color: rgba(169,54,41,.9);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.desc {
+  margin: 0;
+  padding-right: 10px;
+}
+
+.details {
+  margin: 0;
+}
+
+.event-container {
+  margin-left: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  max-width: 600px;
+}
+
 .new-event {
   color: black;
   border: 1px solid black;
