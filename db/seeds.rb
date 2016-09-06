@@ -37,7 +37,6 @@ City.create!(name: "Austin", image: 'assets/cities/austin.jpg')
 
   Event.create!(host_id: 1,
                 city_id: city,
-                date: date,
                 address: address,
                 time: time,
                 seats: seats,
