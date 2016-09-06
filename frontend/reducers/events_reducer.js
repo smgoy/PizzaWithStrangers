@@ -14,6 +14,8 @@ export const EventErrors = (state = [], action) => {
   switch (action.type) {
     case eventsConstants.RECEIVE_EVENT_ERRORS:
       return action.errors;
+    case eventsConstants.CLEAR_EVENT_ERRORS:
+      return [];
     default:
       return state;
   }

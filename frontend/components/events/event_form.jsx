@@ -16,6 +16,12 @@ class EventForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.eventErrors.length === 0) {
+      hashHistory.push(`/city/${this.props.city_id}`);
+    }
+  }
+
   update(field, e){
     let val;
     if (field === 'time') {
@@ -32,59 +38,122 @@ class EventForm extends React.Component {
 		this.props.createEvent({event});
 	}
 
+  renderErrors(){
+		if (this.props.eventErrors.length > 0){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+  wrapErrors(errorElement) {
+    return(
+      <div className="row">
+				<div className="col-md-10 col-md-offset-1">
+          {errorElement}
+        </div>
+      </div>
+    );
+  }
+
   render() {
 
+    let nameError = '';
+    let addressError = '';
+    let seatError = '';
+    let timeError = '';
+    let errorClass = '';
+    let requiredFields = '';
+
+    if (this.renderErrors()) {
+      errorClass = ' form-danger';
+      requiredFields = <p className="error-message">* required fields</p>;
+      this.props.eventErrors.forEach( (error) => {
+        if (error.includes('Name')) {
+          nameError = <p className="error-message">You must choose a name for your party</p>;
+        } else if (error.includes('Seat')){
+          seatError = <p className="error-message">You must specify a seat number</p>;
+        } else if (error.includes('Time')){
+          timeError = <p className="error-message">You must choose a time and date</p>;
+        } else if (error.includes('Address')){
+          addressError = <p className="error-message">You must specify an address</p>;
+        }
+      });
+    }
 
     return(
-      <div className="container">
-        <div className="row">
-          <div className="col-md-10 col-md-offset-1">
-            <form className="well well-sm" onSubmit={this.handleSubmit}>
+      <div>
+        <div className="container login-greeter">
+          <div className="row">
+            <div className="col-md-10 col-md-offset-1">
+              <h2>Thanks for hosting!</h2>
+              <h4>Just fill out the details below to get the party started.</h4>
+            </div>
+          </div>
+        </div>
 
-              <div className="row">
-                <div className="col-md-10 col-md-offset-1">
-                  <input type="text"
-                    value={this.state.name}
-                    onChange={this.update.bind(this, "name")}
-                    placeholder="Party Name"
-                    className="form-control" />
+
+        <div className="container">
+          <div className="row">
+            <div className="col-md-10 col-md-offset-1">
+              <form className="well well-sm" onSubmit={this.handleSubmit}>
+
+                {this.wrapErrors(requiredFields)}
+
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <input type="text"
+                      value={this.state.name}
+                      onChange={this.update.bind(this, "name")}
+                      placeholder="Party Name"
+                      className={`form-control${errorClass}`} />
+                  </div>
                 </div>
-              </div>
 
-              <div className="row">
-                <div className="col-md-10 col-md-offset-1">
-                  <input type="text"
-                    value={this.state.address}
-                    onChange={this.update.bind(this, "address")}
-                    placeholder="Address"
-                    className="form-control" />
+                {this.wrapErrors(nameError)}
+
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <input type="text"
+                      value={this.state.address}
+                      onChange={this.update.bind(this, "address")}
+                      placeholder="Address"
+                      className={`form-control${errorClass}`} />
+                  </div>
                 </div>
-              </div>
 
-              <div className="row">
-                <div className="col-md-10 col-md-offset-1">
-                  <input type="text"
-                    value={this.state.seats}
-                    onChange={this.update.bind(this, "seats")}
-                    placeholder="Seats Available"
-                    className="form-control" />
+                {this.wrapErrors(addressError)}
+
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <input type="text"
+                      value={this.state.seats}
+                      onChange={this.update.bind(this, "seats")}
+                      placeholder="Seats Available"
+                      className={`form-control${errorClass}`} />
+                  </div>
                 </div>
-              </div>
 
-              <div className="row">
-                <div className="col-md-10 col-md-offset-1">
-                  <Datetime defaultValue="Time and Date"
-                            onChange={this.update.bind(this, "time")} />
+                {this.wrapErrors(seatError)}
+
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1">
+                    <Datetime onChange={this.update.bind(this, "time")}
+                              inputProps={{className: `form-control${errorClass}`,
+                                           placeholder: "Time and Date"}} />
+                  </div>
                 </div>
-              </div>
 
-              <div className="row">
-                <div className="col-md-10 col-md-offset-1 login-demo">
-                  <input type="submit" className="btn btn-primary login-button" />
+                {this.wrapErrors(timeError)}
+
+                <div className="row">
+                  <div className="col-md-10 col-md-offset-1 login-demo">
+                    <input type="submit" className="btn btn-primary login-button" />
+                  </div>
                 </div>
-              </div>
 
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>

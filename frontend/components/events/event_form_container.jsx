@@ -3,7 +3,9 @@ import EventForm from './event_form';
 import { createEvent } from '../../actions/events_actions';
 
 const mapStateToProps = state => ({
-  city_id: state.session.currentUser.city_id
+  city_id: state.session.currentUser.city_id,
+  eventErrors: state.eventErrors,
+  events: state.events
 });
 
 const mapDispatchToProps = dispatch => ({
