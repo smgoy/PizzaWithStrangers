@@ -15,8 +15,8 @@
 #
 
 class Event < ActiveRecord::Base
-  validates :host_id, :city_id, :date, :address,
-            :time, :seats, presence: true
+  validates :host_id, :city_id, :address,
+            :time, :seats, :name, presence: true
   validate :start_date
 
   def start_date

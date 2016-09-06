@@ -11,10 +11,6 @@ class EventsIndex extends React.Component {
     this.props.createAttendance(attendance);
   }
 
-  showEventForm() {
-
-  }
-
   decorateEvent(eventObj) {
     return(
       <div>
@@ -47,7 +43,7 @@ class EventsIndex extends React.Component {
 
     return(
       <div className="container">
-        <a onClick={this.showEventForm.bind(this)} className="new-event">+ New Event</a>
+        <a href="#/new-event" className="new-event">+ New Event</a>
 
         <div className="event-header-container">
           <h2 className="event-header-text">this week.</h2>

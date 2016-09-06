@@ -1,6 +1,5 @@
 import React from 'react';
 import EventsContainer from '../events/events_container';
-import EventForm from '../events/event_form';
 
 const CityDetail = ({city}) => (
   <div>
