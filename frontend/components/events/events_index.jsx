@@ -7,11 +7,21 @@ class EventsIndex extends React.Component {
     this.decorateEvent = this.decorateEvent.bind(this);
   }
 
+  quickSort(events) {
+    if (events.length === 0) return events;
+    if (events.length === 1) return events;
+
+    let el = events[0];
+    let left = events.slice(1).filter( event => Date.parse(event.date) <= Date.parse(el.date) );
+    let right = events.slice(1).filter( event => Date.parse(event.date) > Date.parse(el.date) );
+
+    return this.quickSort(left).concat([el]).concat(this.quickSort(right));
+  }
+
   joinEvent(e) {
     e.preventDefault();
     const eventId = $(e.currentTarget).data('id');
     const userId = this.props.currentUser.id;
-    debugger;
     const attendance = { attendance: { event_id: eventId, user_id: userId } };
     this.props.createAttendance(attendance);
   }
@@ -73,6 +83,11 @@ class EventsIndex extends React.Component {
         thisYear.push(events[id]);
       }
     });
+
+    thisWeek = this.quickSort(thisWeek);
+    thisMonth = this.quickSort(thisMonth);
+    thisYear = this.quickSort(thisYear);
+
 
     return(
       <div className="container">
