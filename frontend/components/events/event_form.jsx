@@ -1,6 +1,7 @@
 import React from 'react';
 import Datetime from 'react-datetime';
 import { Link, hashHistory } from 'react-router';
+import moment from 'moment';
 
 class EventForm extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class EventForm extends React.Component {
   update(field, e){
     let val;
     if (field === 'time') {
-      val = e._d;
+      val = moment(e._d).format("YYYY-MM-DDTHH:mm");
     } else {
       val = e.currentTarget.value;
     }
