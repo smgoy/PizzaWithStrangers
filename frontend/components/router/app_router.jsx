@@ -26,7 +26,9 @@ class AppRouter extends React.Component{
                               onEnter={this.requestCities.bind(this)}
                               onLeave={this.clearCity.bind(this)} />
         <Route path='/city/:cityId' component={CityDetailContainer} onEnter={this.requestCity.bind(this)} />
-        <Route path='/new-event' component={EventFormContainer} onLeave={this.clearErrors.bind(this, 'event')} />
+        <Route path='/new-event' component={EventFormContainer}
+                                 onLeave={this.clearErrors.bind(this, 'event')}
+                                 onEnter={this.redirectIfNotLoggedIn.bind(this)} />
       </Route>
     );
   }
@@ -50,6 +52,12 @@ class AppRouter extends React.Component{
   redirectIfLoggedIn(nextState, replace) {
     if (this.props.currentUser) {
       replace('/');
+    }
+  }
+
+  redirectIfNotLoggedIn(nextState, replace) {
+    if (!this.props.currentUser) {
+      replace('/login');
     }
   }
 

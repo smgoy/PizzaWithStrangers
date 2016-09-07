@@ -2,44 +2,77 @@ import React from 'react';
 import { withRouter } from 'react-router';
 
 class EventsIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.decorateEvent = this.decorateEvent.bind(this);
+  }
 
   joinEvent(e) {
     e.preventDefault();
     const eventId = $(e.currentTarget).data('id');
     const userId = this.props.currentUser.id;
+    debugger;
     const attendance = { attendance: { event_id: eventId, user_id: userId } };
     this.props.createAttendance(attendance);
   }
 
-  decorateEvent(eventObj) {
-    return(
-      <div>
+  ditchEvent(e) {
+    e.preventDefault();
+    const eventId = $(e.currentTarget).data('id');
+    const userId = this.props.currentUser.id;
+    const attendance = { event_id: eventId, user_id: userId };
+    this.props.destroyAttendance(attendance);
+  }
+
+  decorateEvent(eventList) {
+    if (eventList.length === 0) {
+      return (
         <div className="event-container">
-          <div className="event-description">
-            <p className="desc">Event Name:</p>
-            <p className="desc">6 Seat Left</p>
-          </div>
-          <div className="event-details">
-            <p className="details">9746 Florian Court</p>
-            <p className="details">December, 26 at 08:57 AM</p>
-            <a className="join">Join</a>
-          </div>
+          <p>Host a party</p>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return eventList.map( eventObj => {
+        let button;
+        if (this.props.currentUser.attendances.includes(eventObj.id)) {
+          button = <a data-id={eventObj.id} onClick={this.ditchEvent.bind(this)} className="join">Ditch</a>;
+        } else {
+          button = <a data-id={eventObj.id} onClick={this.joinEvent.bind(this)} className="join">Join</a>;
+        }
+        return(
+          <div key={eventObj.id}>
+            <div className="event-container">
+              <div className="event-description">
+                <p className="desc">{eventObj.name}:</p>
+                <p className="desc">{eventObj.seats} Seat Left</p>
+              </div>
+              <div className="event-details">
+                <p className="details">{eventObj.address}</p>
+                <p className="details">{eventObj.date} at {eventObj.time}</p>
+                {button}
+              </div>
+            </div>
+          </div>);
+      });
+    }
   }
 
   render() {
     const {events} = this.props;
 
-    let thisWeek;
-    let thisMonth;
-    let thisYear;
+    let thisWeek = [];
+    let thisMonth = [];
+    let thisYear = [];
 
     Object.keys(events).forEach( id => {
-      //need to get date.js working
+      if (Date.parse(events[id].date) > Date.today() && Date.parse(events[id].date) < Date.today().add(7).days()) {
+        thisWeek.push(events[id]);
+      } else if (Date.parse(events[id].date) < Date.today().addMonths(1)) {
+        thisMonth.push(events[id]);
+      } else if (Date.parse(events[id].date) < Date.today().addYears(1)) {
+        thisYear.push(events[id]);
+      }
     });
-
 
     return(
       <div className="container">
@@ -49,13 +82,20 @@ class EventsIndex extends React.Component {
           <h2 className="event-header-text">this week.</h2>
         </div>
 
+        {this.decorateEvent(thisWeek)}
+
         <div className="event-header-container">
           <h2 className="event-header-text">this month.</h2>
         </div>
 
+        {this.decorateEvent(thisMonth)}
+
         <div className="event-header-container">
           <h2 className="event-header-text">this year.</h2>
         </div>
+
+        {this.decorateEvent(thisYear)}
+
       </div>
     );
   }

@@ -10,26 +10,32 @@ const _nullUser = Object.freeze({
 
 const SessionReducer = (state = _nullUser, action) => {
   switch (action.type) {
-    case sessionConstants.RECEIVE_CURRENT_USER:
+    case sessionConstants.RECEIVE_CURRENT_USER: {
       const currentUser = action.currentUser;
       return merge({}, _nullUser, { currentUser });
-    case sessionConstants.LOGOUT:
+    }
+    case sessionConstants.LOGOUT: {
       return merge({}, _nullUser);
-    case sessionConstants.RECEIVE_ERRORS:
+    }
+    case sessionConstants.RECEIVE_ERRORS: {
       const errors = action.errors;
       return merge({}, _nullUser, { errors });
-    case sessionConstants.CLEAR_ERRORS:
+    }
+    case sessionConstants.CLEAR_ERRORS: {
       return merge({}, state, { errors: [] });
+    }
     case attendanceConstants.CREATE_USER_ATTENDANCE: {
-      let attendances = state.currentUser.attendances.slice();
-      attendances.push(action.attendance.id);
-      return merge({}, state, { currentUser: { attendances } });
+      const attendances = state.currentUser.attendances.slice();
+      attendances.push(action.attendance.event_id);
+      const currentUser = Object.assign({}, state.currentUser, { attendances });
+      return Object.assign({}, state, { currentUser });
     }
     case attendanceConstants.DESTROY_USER_ATTENDANCE: {
-      let attendances = state.currentUser.attendances.slice();
-      let index = attendances.indexOf(action.attendance.id);
-      attendances.slice(index, 1);
-      return merge({}, state, { currentUser: { attendances } });
+      const attendances = state.currentUser.attendances.slice();
+      const index = attendances.indexOf(action.attendance.event_id);
+      attendances.splice(index, 1);
+      const currentUser = Object.assign({}, state.currentUser, { attendances });
+      return Object.assign({}, state, { currentUser });
     }
     default:
       return state;

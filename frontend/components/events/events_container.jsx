@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import EventsIndex from './events_index';
-import { createAttendance } from '../../actions/attendance_actions';
+import { createAttendance,
+         destroyAttendance } from '../../actions/attendance_actions';
 
 const mapStateToProps = state => ({
   events: state.events,
@@ -8,7 +9,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createAttendance: attendance => dispatch(createAttendance(attendance))
+  createAttendance: attendance => dispatch(createAttendance(attendance)),
+  destroyAttendance: attendance => dispatch(destroyAttendance(attendance))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsIndex);

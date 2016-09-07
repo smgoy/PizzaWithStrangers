@@ -8,11 +8,12 @@ export const createAttendance = (success, data) => {
   });
 };
 
-export const destroyAttendance = (success, id) => {
+export const destroyAttendance = (success, data) => {
   $.ajax({
-    url: `api/attendances/${id}`,
+    url: 'api/attendances/1',
     method: 'DELETE',
     dataType: 'json',
+    data,
     success
   });
 };

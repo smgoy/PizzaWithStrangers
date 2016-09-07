@@ -3,7 +3,8 @@
     json.id event.id
     json.host_id event.host_id
     json.address event.address
-    json.time event.time
+    json.time event.time.strftime('%l:%M %P')
+    json.date event.time.strftime('%B, %e %Y')
     json.seats event.seats
     json.name event.name
   end

@@ -13,7 +13,7 @@ const AttendanceMiddleware = ({dispatch}) => next => action => {
     }
     case attendanceConstants.DESTROY_ATTENDANCE: {
       const success = (attendance) => dispatch(destroyUserAttendance(attendance));
-      destroyAttendance(success, action.id);
+      destroyAttendance(success, action.attendance);
       return next(action);
     }
     default:

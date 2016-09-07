@@ -10,9 +10,9 @@ export const createAttendance = attendance => ({
   attendance
 });
 
-export const destroyAttendance = id => ({
+export const destroyAttendance = attendance => ({
   type: attendanceConstants.DESTROY_ATTENDANCE,
-  id
+  attendance
 });
 
 export const createUserAttendance = attendance => ({
