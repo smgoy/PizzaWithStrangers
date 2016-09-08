@@ -12,7 +12,7 @@ const Home = () => (
       </div>
     </div>
     <div className='footer'>
-      <h3 className='footer-text'>EAT PIZZA - KEEP IT CHEESY - MAKE FRIENDS</h3>
+      <h3 className='footer-text'>MAKE FRIENDS - EAT PIZZA - KEEP IT CHEESY</h3>
     </div>
   </div>
 );

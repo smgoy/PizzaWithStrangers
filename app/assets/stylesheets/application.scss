@@ -29,7 +29,7 @@ a:hover {
 
 .navbar {
   margin: 0;
-  border-bottom: 2px solid #2E3831;
+  border-bottom: 4px solid #2E3831;
 }
 
 .navbar-header img {
@@ -66,6 +66,7 @@ a:hover {
 }
 
 .home-text-container {
+  position: relative;
   max-width: 800px;
   padding-bottom: 150px;
   padding-right: 0;
@@ -73,25 +74,29 @@ a:hover {
   padding-top: 100px;
   margin: 0 auto;
   background-color: #C93514;
-  animation: fadein 2s;
-  -webkit-animation: fadein 2s;
+  animation: fadein 1.5s;
+  -webkit-animation: fadein 1.5s;
 }
 
 @keyframes fadein {
     from {
         opacity:0;
+        top: -75px;
     }
     to {
         opacity:1;
+        top: 0px;
     }
 }
 
 @-webkit-keyframes fadein {
     from {
         opacity:0;
+        top: -100px;
     }
     to {
         opacity:1;
+        top: 0px;
     }
 }
 
@@ -204,21 +209,34 @@ a:hover {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
-  margin-top: 30px;
+  margin-left: 23px;
+  width: 1110px;
 }
 
 .city-container {
-  padding-right: 40px;
-  padding-left: 40px;
+  margin: 70px 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.center {
+.city-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.city-header-text {
   text-align: center;
+  margin: 0;
 }
 
-.text-container {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.city-header-subtext {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 .cover {

@@ -23,9 +23,15 @@ class CitiesIndex extends React.Component {
     ));
 
     return(
-      <div className='container city-container'>
-        <h1 className="center text-container">We're hosting pizza parties all over the continent!</h1>
-        <h4 className="center text-container">CHECK OUT OUR EVENTS IN THESE CITIES</h4>
+      <div className='city-container'>
+        <div className='city-header-container'>
+          <img src="assets/pizza_truck.png" />
+          <div>
+            <h1 className="city-header-text">We're trucking to you</h1>
+            <h1 className="city-header-text">from all over the globe!</h1>
+          </div>
+        </div>
+        <h4 className="city-header-subtext">CHECK OUT OUR EVENTS IN THESE CITIES</h4>
         <div className='city-list'>
           {cityList}
         </div>
