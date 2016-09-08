@@ -7,22 +7,29 @@ h1, h2, h3, h4, li, a {
 }
 
 body {
-  background-color: #f6f0d8;
-  font-family: sans-serif;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  background-color: rgb(230, 218, 201);
+  font-family: 'muli', sans-serif;
+  color: #2E3831;
 }
 
 a {
   text-decoration: none;
+  color: #2E3831;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #2E3831;
 }
 
 .navbar-default {
-  background-color: rgba(169,54,41,.9);
+  background-color: #C93514;
   border: 0;
 }
 
 .navbar {
   margin: 0;
+  border-bottom: 2px solid #2E3831;
 }
 
 .navbar-header img {
@@ -32,34 +39,96 @@ a {
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: black;
+  color: #E6DAC9;
+  border-right: 2px solid #2E3831;
+}
+
+.navbar-default .navbar-nav li:first-child {
+  border-left: 2px solid #2E3831;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-  color: #f6f0d8;
-}
-
-.jumbotron {
-  background-color: #7E7E7E;
-}
-
-.jumbotron img {
-  width: 100%;
-  height: 100%;
-}
-
-.center-text {
-  margin-top: 45px;
-  padding-left: 0px;
-  padding-right: 15px;
+  color: #2E3831;
 }
 
 .home {
   min-height: 300px;
 }
 
+.home-container {
+  background-color: #C93514;
+}
+
+.home-image {
+  display: block;
+  margin: 0 auto;
+
+}
+
+.home-text-container {
+  max-width: 800px;
+  padding-bottom: 150px;
+  padding-right: 0;
+  padding-left: 0;
+  padding-top: 100px;
+  margin: 0 auto;
+  background-color: #C93514;
+  animation: fadein 2s;
+  -webkit-animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
 .home-text {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.join-button {
+  font-family: 'Montserrat', sans-serif;
+  color: #E6DAC9;
+  font-size: 22px;
+  border: 2px solid #2E3831;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.join-container {
+  margin: 0 auto;
+  width: 217px;
+}
+
+.footer {
+  height: 150px;
+  background-color: #2E3831;
+}
+
+.footer-text {
+  color: #E6DAC9;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding-top: 67px;
+  margin: 0;
+  font-size: 20px;
 }
 
 .btn-primary {
