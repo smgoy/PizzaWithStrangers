@@ -3,5 +3,5 @@ attendances = user.events.map do |event|
 end
 
 
-json.extract! user, :id, :f_name, :city_id
+json.extract! user, :id, :f_name, :city_id, :host
 json.attendances attendances

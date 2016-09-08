@@ -5,7 +5,9 @@ import { createAttendance,
 
 const mapStateToProps = state => ({
   events: state.events,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  city: state.city,
+  cities: state.cities
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -5,6 +5,8 @@ class EventsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.decorateEvent = this.decorateEvent.bind(this);
+    this.eventPermission = this.eventPermission.bind(this);
+    this.correctCity = this.correctCity.bind(this);
   }
 
   quickSort(events) {
@@ -32,6 +34,28 @@ class EventsIndex extends React.Component {
     const userId = this.props.currentUser.id;
     const attendance = { event_id: eventId, user_id: userId };
     this.props.destroyAttendance(attendance);
+  }
+
+  becomeHost() {
+    alert("Thank you for your inquiry, you will notified when aproved for hosting parties!");
+  }
+
+  correctCity(e) {
+    if (this.props.city.id !== this.props.currentUser.city_id) {
+      e.preventDefault();
+      const homeCity = this.props.cities[this.props.currentUser.city_id].name;
+      alert(`Sorry, you can only host events in your home city: ${homeCity}.`);
+    }
+  }
+
+  eventPermission() {
+    if (!this.props.currentUser) {
+      return <a href="#/new-event" className="new-event">Become a Host</a>;
+    } else if (this.props.currentUser.host) {
+      return <a onClick={this.correctCity} href="#/new-event" className="new-event">+ New Event</a>;
+    } else {
+      return <a onClick={this.becomeHost} className="new-event">Become a Host</a>;
+    }
   }
 
   decorateEvent(eventList) {
@@ -91,7 +115,8 @@ class EventsIndex extends React.Component {
 
     return(
       <div className="container">
-        <a href="#/new-event" className="new-event">+ New Event</a>
+
+        {this.eventPermission()}
 
         <div className="event-header-container">
           <h2 className="event-header-text">this week.</h2>
