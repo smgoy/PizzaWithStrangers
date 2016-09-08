@@ -18,14 +18,15 @@ Attendance.create!(user_id: 1, event_id: 5)
 Attendance.create!(user_id: 1, event_id: 6)
 Attendance.create!(user_id: 1, event_id: 7)
 
-City.create!(name: "San Francisco", image: 'assets/cities/sf.jpeg')
-City.create!(name: "Boston", image: 'assets/cities/boston.jpeg')
-City.create!(name: "DC", image: 'assets/cities/dc.jpeg')
-City.create!(name: "New York", image: 'assets/cities/nyc.jpg')
-City.create!(name: "Los Angeles", image: 'assets/cities/la.jpeg')
-City.create!(name: "Baltimore", image: 'assets/cities/baltimore.jpg')
-City.create!(name: "Denver", image: 'assets/cities/denver.jpg')
-City.create!(name: "Austin", image: 'assets/cities/austin.jpg')
+City.create!(name: "San Francisco", image: 'https://postimg.org/image/r25a3pgwv/')
+City.create!(name: "DC", image: 'https://s21.postimg.org/53yihdn6v/image.jpg')
+City.create!(name: "Rio", image: 'https://postimg.org/image/l27iattup/')
+City.create!(name: "Hong Kong", image: 'https://postimg.org/image/5wjp42vv7/')
+City.create!(name: "New York", image: 'https://postimg.org/image/8kidtsg81/')
+City.create!(name: "Los Angeles", image: 'https://postimg.org/image/hg8hvoclf/')
+City.create!(name: "Rome", image: 'https://postimg.org/image/c5rzueex1/')
+City.create!(name: "Paris", image: 'https://postimg.org/image/6sk69gxux/')
+City.create!(name: "Seattle", image: 'https://postimg.org/image/6u908rqv9/')
 
 1.upto(100) do
   city = [1,2,3,4,5,6,7,8].sample
