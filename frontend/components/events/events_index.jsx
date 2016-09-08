@@ -26,6 +26,7 @@ class EventsIndex extends React.Component {
     const userId = this.props.currentUser.id;
     const attendance = { attendance: { event_id: eventId, user_id: userId } };
     this.props.createAttendance(attendance);
+    this.props.subtractSeat(attendance.attendance.event_id);
   }
 
   ditchEvent(e) {
@@ -34,6 +35,7 @@ class EventsIndex extends React.Component {
     const userId = this.props.currentUser.id;
     const attendance = { event_id: eventId, user_id: userId };
     this.props.destroyAttendance(attendance);
+    this.props.addSeat(attendance.event_id);
   }
 
   becomeHost() {

@@ -1,6 +1,7 @@
 import merge from 'lodash.merge';
 import { sessionConstants } from '../actions/session_actions';
 import { attendanceConstants } from '../actions/attendance_actions';
+import { eventsConstants } from '../actions/events_actions';
 
 const _nullUser = Object.freeze({
   currentUser: null,
@@ -35,6 +36,19 @@ const SessionReducer = (state = _nullUser, action) => {
       const index = attendances.indexOf(action.attendance.event_id);
       attendances.splice(index, 1);
       const currentUser = Object.assign({}, state.currentUser, { attendances });
+      return Object.assign({}, state, { currentUser });
+    }
+    case eventsConstants.ADD_HOST_EVENT: {
+      const hostedEvents = state.currentUser.hosted_events.slice();
+      hostedEvents.push(action.event);
+      const currentUser = Object.assign({}, state.currentUser, { hosted_events: hostedEvents });
+      return Object.assign({}, state, { currentUser });
+    }
+    case eventsConstants.DELETE_HOST_EVENT: {
+      const hostedEvents = state.currentUser.hosted_events.slice();
+      const index = hostedEvents.indexOf(action.event);
+      hostedEvents.splice(index, 1);
+      const currentUser = Object.assign({}, state.currentUser, { hosted_events: hostedEvents });
       return Object.assign({}, state, { currentUser });
     }
     default:
