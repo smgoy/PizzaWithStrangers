@@ -1,9 +1,13 @@
-
+@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "datetime";
 
 h1, h2, h3, h4, li, a {
   font-family: inherit;
+}
+
+ul {
+  list-style: none;
 }
 
 body {
@@ -54,6 +58,10 @@ a:visited {
 
 .navbar-default .navbar-nav > li > a:hover {
   color: #2E3831;
+}
+
+.navbar-default .navbar-nav > li > a:focus {
+  color: #E6DAC9;
 }
 
 .home {
@@ -192,10 +200,12 @@ a:visited {
 
 .link-text:visited {
   color: #2E3831;
+  text-decoration: underline;
 }
 
 .link-text:hover {
   color: #C93514;
+  text-decoration: underline;
 }
 
 .form-control {
@@ -261,6 +271,7 @@ a:visited {
 .city-image {
   width: 320px;
   margin-right: 17px;
+  cursor: pointer;
 }
 
 .city-list {
@@ -317,18 +328,20 @@ a:visited {
 
 .cover-text-bottom {
   position: absolute;
-  bottom: 7px;
-  left: 62px;
+  bottom: 40px;
+  left: 100px;
   color: white;
   background-color: rgba(0, 0, 0, .5);
+  font-size: 40px;
 }
 
 .cover-text-top {
   position: absolute;
-  bottom: 40px;
-  left: 62px;
+  bottom: 84px;
+  left: 100px;
   color: white;
   background-color: rgba(0, 0, 0, .5);
+  font-size: 40px;
 }
 
 .event-header-text {
@@ -384,26 +397,44 @@ a:visited {
 }
 
 .event-container {
-  margin-left: 100px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid black;
-  max-width: 600px;
+  margin: 75px 150px;
 }
 
 .new-event {
-  color: black;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 5px;
+  color: #2E3831;
+  border: 2px solid #2E3831;
+  border-radius: 5px;
+  padding: 10px;
   float: right;
 }
 
 .new-event:hover {
-  background-color: rgba(169,54,41,.9);
-  color: white;
+  background-color: #C93514;
+  color: rgb(230, 218, 201);
   text-decoration: none;
   cursor: pointer;
+}
+
+.glyphicon-plus {
+  font-size: 14px;
+}
+
+.event-menu-text {
+  margin: 54px auto;
+  text-align: center;
+}
+
+.event-dropdown {
+  color: #C93514;
+  text-decoration: underline;
+}
+.event-dropdown:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.glyphicon-triangle-bottom {
+  font-size: 14px;
 }
 
 .event-form-container {
@@ -413,4 +444,9 @@ a:visited {
   width: 400px;
   height: 500px;
   z-index: 1;
+}
+
+.timmy {
+  display: block;
+  margin: 50px auto;
 }

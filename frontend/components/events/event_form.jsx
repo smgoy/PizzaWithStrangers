@@ -50,7 +50,7 @@ class EventForm extends React.Component {
   wrapErrors(errorElement) {
     return(
       <div className="row">
-				<div className="col-md-10 col-md-offset-1">
+				<div className="col-md-8 col-md-offset-2">
           {errorElement}
         </div>
       </div>
@@ -86,7 +86,7 @@ class EventForm extends React.Component {
       <div>
         <div className="container login-greeter">
           <div className="row">
-            <div className="col-md-10 col-md-offset-1">
+            <div className="col-md-8 col-md-offset-2">
               <h2>Thanks for hosting!</h2>
               <h4>Just fill out the details below to get the party started.</h4>
             </div>
@@ -96,13 +96,13 @@ class EventForm extends React.Component {
 
         <div className="container">
           <div className="row">
-            <div className="col-md-10 col-md-offset-1">
+            <div className="col-md-8 col-md-offset-2">
               <form className="well well-sm" onSubmit={this.handleSubmit}>
 
                 {this.wrapErrors(requiredFields)}
 
                 <div className="row">
-                  <div className="col-md-10 col-md-offset-1">
+                  <div className="col-md-8 col-md-offset-2">
                     <input type="text"
                       value={this.state.name}
                       onChange={this.update.bind(this, "name")}
@@ -114,7 +114,7 @@ class EventForm extends React.Component {
                 {this.wrapErrors(nameError)}
 
                 <div className="row">
-                  <div className="col-md-10 col-md-offset-1">
+                  <div className="col-md-8 col-md-offset-2">
                     <input type="text"
                       value={this.state.address}
                       onChange={this.update.bind(this, "address")}
@@ -126,7 +126,7 @@ class EventForm extends React.Component {
                 {this.wrapErrors(addressError)}
 
                 <div className="row">
-                  <div className="col-md-10 col-md-offset-1">
+                  <div className="col-md-8 col-md-offset-2">
                     <input type="text"
                       value={this.state.seats}
                       onChange={this.update.bind(this, "seats")}
@@ -138,7 +138,7 @@ class EventForm extends React.Component {
                 {this.wrapErrors(seatError)}
 
                 <div className="row">
-                  <div className="col-md-10 col-md-offset-1">
+                  <div className="col-md-8 col-md-offset-2">
                     <Datetime onChange={this.update.bind(this, "time")}
                               inputProps={{className: `form-control${errorClass}`,
                                            placeholder: "Time and Date"}} />
@@ -148,7 +148,7 @@ class EventForm extends React.Component {
                 {this.wrapErrors(timeError)}
 
                 <div className="row">
-                  <div className="col-md-10 col-md-offset-1 login-demo">
+                  <div className="col-md-8 col-md-offset-2 login-demo">
                     <input type="submit" className="btn btn-primary login-button" />
                   </div>
                 </div>

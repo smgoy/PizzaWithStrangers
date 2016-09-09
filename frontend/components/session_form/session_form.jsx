@@ -144,7 +144,7 @@ class SessionForm extends React.Component {
 								<div className="row">
 									<div className="col-md-8 col-md-offset-2 login-demo">
 										<input type="submit" value={submit} className="btn btn-primary login-button" />
-										<input onClick={this.demo} type="submit" value='Demo' className="btn btn-primary login-button" />
+										<input onClick={this.demo} type="submit" value='Guest Login' className="btn btn-primary login-button" />
 									</div>
 								</div>
 
