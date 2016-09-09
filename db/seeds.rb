@@ -40,7 +40,10 @@ party_names = ['My Cheesey Extravaganza', 'Peperoni Heavan', 'Veggie Pizza Bash'
 
 1.upto(60) do |i|
   city = [1,2,3,4,5,6,7,8,9].sample
-  if city == 1
+  if i == 5
+    host_id = 1
+    city = 1
+  elsif city == 1
     host_id = [*1..20].sample
   else
     host_id = [*2..20].sample
@@ -65,7 +68,7 @@ party_names = ['My Cheesey Extravaganza', 'Peperoni Heavan', 'Veggie Pizza Bash'
 end
 
 City.find(1).events.each_with_index do |event, i|
-  if i % 2 == 0
+  if i % 2 == 0 && event.id != 5
     Attendance.create!(user_id: 1, event_id: event.id)
   end
 end
