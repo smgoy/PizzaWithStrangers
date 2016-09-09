@@ -51,7 +51,7 @@ party_names = ['My Cheesey Extravaganza', 'Peperoni Heavan', 'Veggie Pizza Bash'
   else
     date = Faker::Date.between(Date.today, 1.year.from_now)
   end
-  time = Faker::Time.between(date, date, :evening)
+  time = Faker::Time.between(date, date, :morning)
   seats = [*5..10].sample
   name = party_names.sample
 
