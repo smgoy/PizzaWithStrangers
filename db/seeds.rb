@@ -30,10 +30,10 @@ City.create!(name: "Rome", image: 'http://res.cloudinary.com/dcbqili0f/image/upl
 City.create!(name: "Paris", image: 'http://res.cloudinary.com/dcbqili0f/image/upload/v1473376743/paris_ehxmt2.jpg')
 City.create!(name: "Seattle", image: 'http://res.cloudinary.com/dcbqili0f/image/upload/v1473376731/seattle_ccrwtz.jpg')
 
-party_names = ['My Cheesey Extravaganza', 'Peperoni Heavan', 'Veggie Pizza Bash', 'Pizza Hut Party', '711 Pizza Party',
+party_names = ['My Cheesey Extravaganza', 'Pepperoni Heavan', 'Veggie Pizza Bash', 'Pizza Hut Party', '711 Pizza Party',
                'Pizza and Beer', 'Pizza and Sports', 'Fake Veagan', 'No Tomatoe Sauce Please', 'Thin Crust Party',
                'Deep Dish Only', 'New York Style', 'Pizza and Wine', 'Cheesy Cheese Lovers', 'Extra Roni',
-               'BYOP', 'Wine and Some Pizza', 'Peperoni Party', 'Pizza Taste Testing', 'Guton Free Party',
+               'BYOP', 'Wine and Some Pizza', 'Pepperoni Party', 'Pizza Taste Testing', 'Gluton Free Party',
                'Dominos Delivery', 'Fancy Pizza Night', 'Cooking the Largest Pizza', '100lbs of Pizza',
                'Douse me in Cheese', 'Bathe me in Peperoni', 'Pizza and Chill', 'Chill Out and Eat Pizza',
                'A Friend of Pizza is a Friend of Mine', 'Be my Pizza']
