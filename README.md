@@ -4,6 +4,10 @@ Pizza allows people to feel more comfortable, relaxed and in a mood to make some
 
 Pizza With Strangers is a web application to host and attend pizza parties with strangers in select cities around the globe. The site uses Rails backend, PostgreSQL database and React.js with a Redux architectural framework frontend.
 
+### Checkout the site!
+
+[Pizza With Strangers](https://pizzawithstrangers.herokuapp.com)
+
 ## Welcome View
 ![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1473447377/splash_page_co57lj.png)
 
