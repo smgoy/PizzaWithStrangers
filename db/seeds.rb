@@ -8,15 +8,17 @@
 
 #guest account:
 User.create!(email: "guest_user@example.com", password: "guestPassword",
-             f_name: "Guest", city_id: 1, host: true)
+             f_name: "Thanks for Visiting", city_id: 1, host: true)
 
-Attendance.create!(user_id: 1, event_id: 1)
-Attendance.create!(user_id: 1, event_id: 2)
-Attendance.create!(user_id: 1, event_id: 3)
-Attendance.create!(user_id: 1, event_id: 4)
-Attendance.create!(user_id: 1, event_id: 5)
-Attendance.create!(user_id: 1, event_id: 6)
-Attendance.create!(user_id: 1, event_id: 7)
+1.upto(20) do
+  f_name = Faker::Name.first_name
+  email = Faker::Internet.email(f_name)
+  password = Faker::Internet.password(8)
+  city_id = [1,2,3,4,5,6,7,8,9].sample
+
+  User.create!(email: email, password: password,
+               f_name: f_name, city_id: city_id, host: true)
+end
 
 City.create!(name: "San Francisco", image: 'http://res.cloudinary.com/dcbqili0f/image/upload/v1473376844/sf_etkp9p.jpg')
 City.create!(name: "DC", image: 'http://res.cloudinary.com/dcbqili0f/image/upload/v1473376813/dc_ea8lgf.jpg')
@@ -28,19 +30,42 @@ City.create!(name: "Rome", image: 'http://res.cloudinary.com/dcbqili0f/image/upl
 City.create!(name: "Paris", image: 'http://res.cloudinary.com/dcbqili0f/image/upload/v1473376743/paris_ehxmt2.jpg')
 City.create!(name: "Seattle", image: 'http://res.cloudinary.com/dcbqili0f/image/upload/v1473376731/seattle_ccrwtz.jpg')
 
-1.upto(100) do
-  city = [1,2,3,4,5,6,7,8].sample
-  address = Faker::Address.street_address
-  date = Faker::Date.between(Date.today, 1.year.from_now)
-  time = Faker::Time.between(date, date, :all)
-  seats = [*5..10].sample
-  name = Faker::Superhero.name
+party_names = ['My Cheesey Extravaganza', 'Peperoni Heavan', 'Veggie Pizza Bash', 'Pizza Hut Party', '711 Pizza Party',
+               'Pizza and Beer', 'Pizza and Sports', 'Fake Veagan', 'No Tomatoe Sauce Please', 'Thin Crust Party',
+               'Deep Dish Only', 'New York Style', 'Pizza and Wine', 'Cheesy Cheese Lovers', 'Extra Roni',
+               'BYOP', 'Wine and Some Pizza', 'Peperoni Party', 'Pizza Taste Testing', 'Guton Free Party',
+               'Dominos Delivery', 'Fancy Pizza Night', 'Cooking the Largest Pizza', '100lbs of Pizza',
+               'Douse me in Cheese', 'Bathe me in Peperoni', 'Pizza and Chill', 'Chill Out and Eat Pizza',
+               'A Friend of Pizza is a Friend of Mine', 'Be my Pizza']
 
-  Event.create!(host_id: 1,
+1.upto(60) do |i|
+  city = [1,2,3,4,5,6,7,8,9].sample
+  if city == 1
+    host_id = [*1..20].sample
+  else
+    host_id = [*2..20].sample
+  end
+  address = Faker::Address.street_address
+  if i % 4 == 0
+    date = Faker::Date.between(Date.today, 1.month.from_now)
+  else
+    date = Faker::Date.between(Date.today, 1.year.from_now)
+  end
+  time = Faker::Time.between(date, date, :evening)
+  seats = [*5..10].sample
+  name = party_names.sample
+
+  Event.create!(host_id: host_id,
                 city_id: city,
                 address: address,
                 time: time,
                 seats: seats,
-                image: "assets/pizza_event.jpg",
+                image: "null",
                 name: name)
+end
+
+City.find(1).events.each_with_index do |event, i|
+  if i % 2 == 0
+    Attendance.create!(user_id: 1, event_id: event.id)
+  end
 end
