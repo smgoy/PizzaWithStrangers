@@ -124,32 +124,35 @@ class EventsIndex extends React.Component {
 
 
     return(
-      <div className="events-container">
-
-
-        {this.eventPermission()}
-        <br />
-
-        <div className="button-sep">
-          <div className="event-header-container">
-            <h2 className="event-header-text">this week.</h2>
-          </div>
-
-          {this.decorateEvent(thisWeek)}
-
-          <div className="event-header-container">
-            <h2 className="event-header-text">this month.</h2>
-          </div>
-
-          {this.decorateEvent(thisMonth)}
-
-          <div className="event-header-container">
-            <h2 className="event-header-text">this year.</h2>
-          </div>
-
-          {this.decorateEvent(thisYear)}
+      <div>
+        <div className="city-greeter">
+          <h2 className="city-greeter-text">Checkout The upcoming events in {this.props.city.name}</h2>
         </div>
+        <div className="events-container">
+          {this.eventPermission()}
+          <br />
 
+          <div className="button-sep">
+            <div className="event-header-container">
+              <h2 className="event-header-text">this week.</h2>
+            </div>
+
+            {this.decorateEvent(thisWeek)}
+
+            <div className="event-header-container">
+              <h2 className="event-header-text">this month.</h2>
+            </div>
+
+            {this.decorateEvent(thisMonth)}
+
+            <div className="event-header-container">
+              <h2 className="event-header-text">this year.</h2>
+            </div>
+
+            {this.decorateEvent(thisYear)}
+          </div>
+
+        </div>
       </div>
     );
   }

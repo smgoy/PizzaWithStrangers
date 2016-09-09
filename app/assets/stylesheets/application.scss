@@ -407,7 +407,7 @@ a:visited {
 }
 
 .events-container {
-  margin: 75px 150px;
+  margin: 20px 150px;
 }
 
 .new-event {
@@ -441,4 +441,16 @@ a:visited {
 .timmy {
   display: block;
   margin: 50px auto;
+}
+
+.city-greeter {
+  background-color: #2E3831;
+  height: 100px;
+  padding-top: 28px;
+}
+
+.city-greeter-text {
+  color: rgb(230, 218, 201);
+  margin: 0;
+  text-align: center;
 }
