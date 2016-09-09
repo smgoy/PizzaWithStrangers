@@ -17,7 +17,8 @@ class CitiesIndex extends React.Component {
           <div className="city-name">
             <p className="city-text">{cities[id].name}</p>
           </div>
-          <img className="show-city" src={cities[id].image} />
+          <img className="show-city"
+               src={cities[id].image.slice(0,48) + '/c_fill,h_200,w_320' + cities[id].image.slice(48)} />
         </a>
       </div>
     ));
