@@ -352,7 +352,7 @@ a:visited {
 .event-header-container {
   box-shadow: 0 3px 0 0 rgba(169,54,41,.9);
   max-width: 600px;
-  margin-left: 100px;
+  margin: 0 auto;
 }
 
 .event-description {
@@ -375,14 +375,14 @@ a:visited {
   margin: 0;
   padding: 0 5px;
   border-radius: 3px;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid #2E3831;
+  color: #2E3831;
   margin: 1px;
 }
 
 .join:hover {
-  background-color: rgba(169,54,41,.9);
-  color: white;
+  background-color: #C93514;
+  color: rgb(230, 218, 201);
   text-decoration: none;
   cursor: pointer;
 }
@@ -397,6 +397,16 @@ a:visited {
 }
 
 .event-container {
+  margin: 10px auto;
+  border-bottom: 1px solid black;
+  max-width: 600px;
+}
+
+.button-sep {
+  margin-top: 50px;
+}
+
+.events-container {
   margin: 75px 150px;
 }
 
@@ -416,24 +426,6 @@ a:visited {
 }
 
 .glyphicon-plus {
-  font-size: 14px;
-}
-
-.event-menu-text {
-  margin: 54px auto;
-  text-align: center;
-}
-
-.event-dropdown {
-  color: #C93514;
-  text-decoration: underline;
-}
-.event-dropdown:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.glyphicon-triangle-bottom {
   font-size: 14px;
 }
 

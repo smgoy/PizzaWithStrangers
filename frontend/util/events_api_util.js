@@ -17,3 +17,12 @@ export const createEvent = (success, error, data) => {
     error
   });
 };
+
+export const destroyEvent = (success, eventId) => {
+  $.ajax({
+    url: `api/events/${eventId}`,
+    method: 'DELETE',
+    dataType: 'json',
+    success
+  });
+};

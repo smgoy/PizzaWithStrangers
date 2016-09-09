@@ -39,6 +39,12 @@ class EventsIndex extends React.Component {
     this.props.addSeat(attendance.event_id);
   }
 
+  destroyEvent(e) {
+    e.preventDefault();
+    const eventId = $(e.currentTarget).data('id');
+    this.props.destroyEvent(eventId);
+  }
+
   becomeHost() {
     const userId = this.props.currentUser.id;
     this.props.becomeHost(userId);
@@ -72,6 +78,8 @@ class EventsIndex extends React.Component {
         let button;
         if (this.props.currentUser.attendances.includes(eventObj.id)) {
           button = <a data-id={eventObj.id} onClick={this.ditchEvent.bind(this)} className="join">Ditch</a>;
+        } else if (this.props.currentUser.hosted_events.includes(eventObj.id)) {
+          button = <a data-id={eventObj.id} onClick={this.destroyEvent.bind(this)} className="join">Delete</a>;
         } else {
           button = <a data-id={eventObj.id} onClick={this.joinEvent.bind(this)} className="join">Join</a>;
         }
@@ -116,12 +124,31 @@ class EventsIndex extends React.Component {
 
 
     return(
-      <div className="event-container">
+      <div className="events-container">
+
 
         {this.eventPermission()}
         <br />
 
-        <h2 className='event-menu-text'>Checkout the upcoming pizza parties <span className="event-dropdown">this week <span className="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span></h2>
+        <div className="button-sep">
+          <div className="event-header-container">
+            <h2 className="event-header-text">this week.</h2>
+          </div>
+
+          {this.decorateEvent(thisWeek)}
+
+          <div className="event-header-container">
+            <h2 className="event-header-text">this month.</h2>
+          </div>
+
+          {this.decorateEvent(thisMonth)}
+
+          <div className="event-header-container">
+            <h2 className="event-header-text">this year.</h2>
+          </div>
+
+          {this.decorateEvent(thisYear)}
+        </div>
 
       </div>
     );

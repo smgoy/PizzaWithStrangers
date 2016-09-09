@@ -1,9 +1,11 @@
 import { requestEvents,
-         createEvent } from '../util/events_api_util';
+         createEvent,
+         destroyEvent } from '../util/events_api_util';
 import { eventsConstants,
          receiveEvents,
          receiveEventErrors,
-         addHostEvent } from '../actions/events_actions';
+         addHostEvent,
+         deleteHostEvent } from '../actions/events_actions';
 
 const EventsMiddleware = ({dispatch}) => next => action => {
   const errorsCallback = e => {
@@ -23,6 +25,11 @@ const EventsMiddleware = ({dispatch}) => next => action => {
       createEvent(successCallback, errorsCallback, event);
       return next(action);
     }
+    case eventsConstants.DESTROY_EVENT:
+      const successCallback = event => dispatch(deleteHostEvent(event));
+      const eventId = action.eventId;
+      destroyEvent(successCallback, eventId);
+      return next(action);
     default:
       return next(action);
   }

@@ -40,14 +40,7 @@ const SessionReducer = (state = _nullUser, action) => {
     }
     case eventsConstants.ADD_HOST_EVENT: {
       const hostedEvents = state.currentUser.hosted_events.slice();
-      hostedEvents.push(action.event);
-      const currentUser = Object.assign({}, state.currentUser, { hosted_events: hostedEvents });
-      return Object.assign({}, state, { currentUser });
-    }
-    case eventsConstants.DELETE_HOST_EVENT: {
-      const hostedEvents = state.currentUser.hosted_events.slice();
-      const index = hostedEvents.indexOf(action.event);
-      hostedEvents.splice(index, 1);
+      hostedEvents.push(action.event.id);
       const currentUser = Object.assign({}, state.currentUser, { hosted_events: hostedEvents });
       return Object.assign({}, state, { currentUser });
     }

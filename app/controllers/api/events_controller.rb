@@ -14,6 +14,13 @@ class Api::EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find_by_id(params[:id])
+
+    @event.delete
+    render json: @event
+  end
+
   private
 
   def event_params

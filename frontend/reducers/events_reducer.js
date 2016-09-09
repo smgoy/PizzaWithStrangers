@@ -13,9 +13,13 @@ export const EventsReducer = (state = {}, action) => {
     }
     case eventsConstants.SUBTRACT_SEAT: {
       const newState = Object.assign({}, state);
-      debugger;
       const seats = state[action.eventId].seats - 1;
       newState[action.eventId].seats = seats;
+      return newState;
+    }
+    case eventsConstants.DELETE_HOST_EVENT: {
+      const newState = Object.assign({}, state);
+      delete newState[action.event.id];
       return newState;
     }
     default:
