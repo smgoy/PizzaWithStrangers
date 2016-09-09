@@ -122,6 +122,14 @@ a:visited {
   border-radius: 5px;
 }
 
+.join-button:visited {
+  color: #E6DAC9;
+}
+
+.join-button:hover {
+  color: #2E3831
+}
+
 .join-container {
   margin: 0 auto;
   width: 217px;
@@ -142,12 +150,52 @@ a:visited {
 }
 
 .btn-primary {
-  background-color: rgba(169,54,41,.9);
-  border-color: black;
+  background-color: rgb(230, 218, 201);
+  border: 2px solid #2E3831;
+  color: #2E3831;
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
   width: 40%;
+}
+
+.btn-primary:hover {
+  background-color: #C93514;
+  border: 2px solid #2E3831;
+}
+
+.btn-primary:active {
+  background-color: rgb(230, 218, 201);
+  color: #2E3831;
+  border: 2px solid #2E3831;
+  outline: 0;
+}
+
+.btn-primary:focus {
+  background-color: rgb(230, 218, 201);
+  color: #2E3831;
+  border: 2px solid #2E3831;
+  outline: 0;
+}
+
+.btn-primary:active:focus {
+  background-color: rgb(230, 218, 201);
+  color: #2E3831;
+  border: 2px solid #2E3831;
+  outline: 0;
+}
+
+.link-text {
+  color: #2E3831;
+  text-decoration: underline;
+}
+
+.link-text:visited {
+  color: #2E3831;
+}
+
+.link-text:hover {
+  color: #C93514;
 }
 
 .form-control {
@@ -155,11 +203,11 @@ a:visited {
 }
 
 .form-danger {
-  border: 1px solid red;
+  border: 1px solid #C93514;
 }
 
 .error-message {
-  color: red;
+  color: #C93514;
   margin-bottom: 0;
 }
 
@@ -169,7 +217,13 @@ a:visited {
 
 .login-greeter {
   margin-top: 35px;
-  color: #ef6236;
+  color: #2E3831;
+}
+
+.well {
+  border: 2px solid #2E3831;
+  background-color: rgb(230, 218, 201);
+  margin-bottom: 50px;
 }
 
 .login-demo {
@@ -253,11 +307,28 @@ a:visited {
   border-radius: 0;
 }
 
-.cover-text {
+.city-cover {
   position: absolute;
-  bottom: 5px;
+  max-width: 100%;
+  height: auto;
+  top: -250px;
+  min-width: 1066px;
+}
+
+.cover-text-bottom {
+  position: absolute;
+  bottom: 7px;
   left: 62px;
   color: white;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.cover-text-top {
+  position: absolute;
+  bottom: 40px;
+  left: 62px;
+  color: white;
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .event-header-text {

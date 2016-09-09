@@ -89,7 +89,7 @@ class UserForm extends React.Component {
       <div>
         <div className="container login-greeter">
           <div className="row">
-            <div className="col-md-10 col-md-offset-1">
+            <div className="col-md-8 col-md-offset-2">
               <h2>You're almost there!</h2>
               <h4>Just fill out your profile so you're not such a stranger.</h4>
             </div>
@@ -98,7 +98,7 @@ class UserForm extends React.Component {
 
         <div className="container">
           <div className="row">
-            <div className="col-md-10 col-md-offset-1">
+            <div className="col-md-8 col-md-offset-2">
               <form className="well well-sm" onSubmit={this.handleSubmit}>
 
                 {this.wrapErrors(requiredFields)}

@@ -48,9 +48,9 @@ class SessionForm extends React.Component {
 
 	navLink(){
 		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
+			return <Link className="link-text" to="/signup">sign up instead</Link>;
 		} else {
-			return <Link to="/login">log in instead</Link>;
+			return <Link className="link-text" to="/login">log in instead</Link>;
 		}
 	}
 
@@ -96,7 +96,7 @@ class SessionForm extends React.Component {
 		let error = '';
 		if (this.renderErrors()) {
 			errorMessage = <div className="row">
-												<div className="col-md-10 col-md-offset-1">
+												<div className="col-md-8 col-md-offset-2">
 													<p className="error-message">{this.state.errors[0]}</p>
 												</div>
 											</div>;
@@ -107,7 +107,7 @@ class SessionForm extends React.Component {
 			<div>
 				<div className="container login-greeter">
 					<div className="row">
-						<div className="col-md-10 col-md-offset-1">
+						<div className="col-md-8 col-md-offset-2">
 							<h2>{ welcomeText }</h2>
 							<h4>Let's get going so we can start up the pizza party.</h4>
 						</div>
@@ -116,11 +116,11 @@ class SessionForm extends React.Component {
 
 				<div className="container">
 					<div className="row">
-						<div className="col-md-10 col-md-offset-1">
+						<div className="col-md-8 col-md-offset-2">
 							<form className="well well-sm" onSubmit={this.handleSubmit}>
 
 								<div className="row">
-									<div className="col-md-10 col-md-offset-1">
+									<div className="col-md-8 col-md-offset-2">
 										<input type="text"
 											value={this.state.email}
 											onChange={this.update("email")}
@@ -130,7 +130,7 @@ class SessionForm extends React.Component {
 								</div>
 
 								<div className="row">
-									<div className="col-md-10 col-md-offset-1">
+									<div className="col-md-8 col-md-offset-2">
 										<input type="password"
 											value={this.state.password}
 											onChange={this.update("password")}
@@ -142,14 +142,14 @@ class SessionForm extends React.Component {
 								{errorMessage}
 
 								<div className="row">
-									<div className="col-md-10 col-md-offset-1 login-demo">
+									<div className="col-md-8 col-md-offset-2 login-demo">
 										<input type="submit" value={submit} className="btn btn-primary login-button" />
 										<input onClick={this.demo} type="submit" value='Demo' className="btn btn-primary login-button" />
 									</div>
 								</div>
 
 								<div className="row">
-									<div className="col-md-10 col-md-offset-1">
+									<div className="col-md-8 col-md-offset-2">
 										<p>{ text } { this.navLink() }</p>
 									</div>
 								</div>
