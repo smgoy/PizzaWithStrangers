@@ -8,6 +8,7 @@ h1, h2, h3, h4, li, a {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 body {
@@ -453,4 +454,32 @@ a:visited {
   color: rgb(230, 218, 201);
   margin: 0;
   text-align: center;
+}
+
+.event-menu-text {
+  text-decoration: underline;
+  text-align: center;
+  cursor: pointer;
+  color: #C93514;
+}
+
+.event-dropdown {
+  text-decoration: underline;
+  margin: 30px auto 0 auto;
+  position: relative;
+  width: 158px;
+}
+
+.glyphicon-triangle-bottom {
+  font-size: 14px;
+}
+
+.event-options {
+  position: absolute;
+  top: 29px;
+  font-size: 30px;
+}
+
+.event-option-items {
+  border-top: 1px solid #2E3831;
 }
