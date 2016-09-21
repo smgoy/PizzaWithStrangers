@@ -64,10 +64,18 @@ class SessionForm extends React.Component {
 											}
 									};
 
-		// console.log(typeof typed);
-		// $(".demo-type").typed();
+		$(".demo-type-email").typed({
+			strings: ["guest_user@example.com"],
+      typeSpeed: 0,
+			callback: () => {
+				$(".demo-type-password").typed({
+					strings: ["guestPassword"],
+		      typeSpeed: 0,
+					callback: () => this.props.login(guest)
+				});
+			}
+		});
 
-		this.props.login(guest);
 	}
 
 	renderErrors(){
@@ -125,7 +133,7 @@ class SessionForm extends React.Component {
 											value={this.state.email}
 											onChange={this.update("email")}
 											placeholder="Email"
-											className={`demo-type form-control${error}`} />
+											className={`demo-type-email form-control${error}`} />
 									</div>
 								</div>
 
@@ -135,7 +143,7 @@ class SessionForm extends React.Component {
 											value={this.state.password}
 											onChange={this.update("password")}
 											placeholder="Password"
-											className={`form-control${error}`} />
+											className={`demo-type-password form-control${error}`} />
 									</div>
 								</div>
 

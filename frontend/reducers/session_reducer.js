@@ -23,7 +23,7 @@ const SessionReducer = (state = _nullUser, action) => {
       return merge({}, _nullUser, { errors });
     }
     case sessionConstants.CLEAR_ERRORS: {
-      return merge({}, state, { errors: [] });
+      return Object.assign({}, state, { errors: [] });
     }
     case attendanceConstants.CREATE_USER_ATTENDANCE: {
       const attendances = state.currentUser.attendances.slice();
