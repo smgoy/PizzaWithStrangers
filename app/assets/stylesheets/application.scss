@@ -461,6 +461,11 @@ a:visited {
   text-align: center;
   cursor: pointer;
   color: #C93514;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 30px;
 }
 
 .event-dropdown {
@@ -482,4 +487,37 @@ a:visited {
 
 .event-option-items {
   border-top: 1px solid #2E3831;
+}
+
+.btn-link {
+  color: #C93514;
+  font-size: 30px;
+  padding: 0 0 6px 0;
+}
+
+.btn-link:hover {
+  color: #C93514;
+  text-decoration: underline;
+}
+
+.btn-link:visited,
+.btn-link:focus {
+  color: #C93514;
+  text-decoration: none;
+}
+
+.dropdown-menu > li > a {
+  font-size: 24px;
+  padding: 3px 10px;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: inherit;
+  color: #C93514;
+}
+
+.dropdown-menu {
+  top: 80%;
+  background-color: rgb(230, 218, 201);
 }

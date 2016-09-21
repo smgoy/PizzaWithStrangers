@@ -127,14 +127,14 @@ class EventsIndex extends React.Component {
     return(
       <div>
         <div className="city-greeter">
-          <h2 className="city-greeter-text">Checkout The upcoming events in {this.props.city.name}</h2>
+          <h2 className="city-greeter-text">Checkout the upcoming events <EventDropdown /></h2>
         </div>
 
         <div className="events-container">
           {this.eventPermission()}
           <br />
 
-          <EventDropdown />
+
 
         </div>
       </div>
