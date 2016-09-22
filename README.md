@@ -2,7 +2,7 @@
 
 Pizza allows people to feel more comfortable, relaxed and in a mood to make some new friends.
 
-Pizza With Strangers is a web application to host and attend pizza parties with strangers in select cities around the globe. The site uses Rails backend, PostgreSQL database and React.js with a Redux architectural framework frontend.
+Pizza With Strangers is a web application to host and attend pizza parties with strangers in select cities around the globe. The site uses Rails backend, PostgreSQL database and ReactJS with a Redux architectural framework frontend.
 
 ### Checkout the site!
 
