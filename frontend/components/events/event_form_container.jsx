@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import EventForm from './event_form';
-import { createEvent } from '../../actions/events_actions';
+import { createEvent,
+         updateEvent } from '../../actions/events_actions';
 
 const mapStateToProps = state => ({
   city_id: state.session.currentUser.city_id,
@@ -10,7 +11,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createEvent: event => dispatch(createEvent(event))
+  createEvent: event => dispatch(createEvent(event)),
+  updateEvent: event => dispatch(updateEvent(event))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventForm);

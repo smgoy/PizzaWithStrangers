@@ -2,6 +2,7 @@ export const eventsConstants = {
   REQUEST_EVENTS: "REQUEST_EVENTS",
   RECEIVE_EVENTS: "RECEIVE_EVENTS",
   CREATE_EVENT: "CREATE_EVENT",
+  UPDATE_EVENT: "UPDATE_EVENT",
   ADD_SEAT: "ADD_SEAT",
   SUBTRACT_SEAT: "SUBTRACT_SEAT",
   ADD_HOST_EVENT: "ADD_HOST_EVENT",
@@ -25,6 +26,11 @@ export const receiveEvents = events => ({
 
 export const createEvent = event => ({
   type: eventsConstants.CREATE_EVENT,
+  event
+});
+
+export const updateEvent = event => ({
+  type: eventsConstants.UPDATE_EVENT,
   event
 });
 

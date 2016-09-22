@@ -16,7 +16,7 @@ class EventForm extends React.Component {
       };
     } else {
       const { event } = this.props;
-      const eventTime = new Date(event.date + ', ' + event.time);
+      const eventTime = moment(event.date + ', ' + event.time).format('MM/DD/YYYY h:mm A');
 
       this.state = {
         city_id: this.props.city_id,
@@ -36,7 +36,6 @@ class EventForm extends React.Component {
   }
 
   update(field, e){
-    debugger;
     let val;
     if (field === 'time') {
       val = moment(e._d).format("YYYY-MM-DDTHH:mm");
@@ -49,7 +48,13 @@ class EventForm extends React.Component {
   handleSubmit(e){
 		e.preventDefault();
 		const event = this.state;
-		this.props.createEvent({event});
+    event.id = this.props.event.id;
+    event.time = moment(this.state.time).format("YYYY-MM-DDTHH:mm");
+    if (this.props.location.pathname === '/new-event') {
+      this.props.createEvent({event});
+    } else {
+      this.props.updateEvent({event});
+    }
 	}
 
   renderErrors(){
