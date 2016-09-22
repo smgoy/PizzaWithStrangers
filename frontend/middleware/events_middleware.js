@@ -5,7 +5,8 @@ import { eventsConstants,
          receiveEvents,
          receiveEventErrors,
          addHostEvent,
-         deleteHostEvent } from '../actions/events_actions';
+         deleteHostEvent,
+         clearEventErrors } from '../actions/events_actions';
 
 const EventsMiddleware = ({dispatch}) => next => action => {
   const errorsCallback = e => {
@@ -20,7 +21,10 @@ const EventsMiddleware = ({dispatch}) => next => action => {
       return next(action);
     }
     case eventsConstants.CREATE_EVENT: {
-      const successCallback = event => dispatch(addHostEvent(event));
+      const successCallback = event => {
+        dispatch(addHostEvent(event));
+        dispatch(clearEventErrors(event));
+      };
       const event = action.event;
       createEvent(successCallback, errorsCallback, event);
       return next(action);

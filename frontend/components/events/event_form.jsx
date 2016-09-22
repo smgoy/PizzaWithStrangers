@@ -12,12 +12,14 @@ class EventForm extends React.Component {
       address: '',
       time: '',
       seats: '',
-      name: ''
+      name: '',
+      errors: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
+    debugger;
     if (newProps.eventErrors.length === 0) {
       hashHistory.push(`/city/${this.props.city_id}`);
     }
