@@ -23,6 +23,7 @@ class EventDropdown extends React.Component {
       this.state.dropdownItems.unshift(this.state.title);
     }
     this.setState({ title: eventKey });
+    this.props.eventDisplay(eventKey.text);
   }
 
   render() {

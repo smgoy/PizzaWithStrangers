@@ -8,7 +8,8 @@ export const eventsConstants = {
   DELETE_HOST_EVENT: "DELETE_HOST_EVENT",
   RECEIVE_EVENT_ERRORS: "RECEIVE_EVENT_ERRORS",
   CLEAR_EVENT_ERRORS: "CLEAR_EVENT_ERRORS",
-  DESTROY_EVENT: "DESTROY_EVENT"
+  DESTROY_EVENT: "DESTROY_EVENT",
+  EVENT_DISPLAY: "EVENT_DISPLAY"
 };
 
 export const requestEvents = cityId => ({
@@ -58,4 +59,9 @@ export const deleteHostEvent = event => ({
 export const destroyEvent = eventId => ({
   type: eventsConstants.DESTROY_EVENT,
   eventId
+});
+
+export const eventDisplay = timePeriod => ({
+  type: eventsConstants.EVENT_DISPLAY,
+  timePeriod
 });

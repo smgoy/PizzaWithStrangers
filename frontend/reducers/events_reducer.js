@@ -37,3 +37,12 @@ export const EventErrors = (state = [], action) => {
       return state;
   }
 };
+
+export const EventDisplay = (state = "this week", action) => {
+  switch (action.type) {
+    case eventsConstants.EVENT_DISPLAY:
+      return action.timePeriod;
+    default:
+      return state;
+  }
+};

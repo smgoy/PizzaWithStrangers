@@ -364,6 +364,20 @@ a:visited {
   margin: 10px 0;
 }
 
+.join-disabled {
+  padding: 5px 20px;
+  border-radius: 3px;
+  border: 1px solid #2E3831;
+  background-color: #C93514;
+  color: rgb(230, 218, 201);
+  cursor: default;
+  margin: 10px 0;
+}
+
+.join-disabled:hover {
+  color: rgb(230, 218, 201);
+}
+
 .join:hover {
   background-color: #C93514;
   color: rgb(230, 218, 201);
@@ -473,9 +487,6 @@ a:visited {
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: 52px
-  // margin: 52px auto 20px auto;
-  // width: 870px;
-  // padding-left: 30px;
 }
 
 .title {
@@ -499,6 +510,14 @@ hr {
 .event-join-container {
   text-align: center;
   margin: 20px 0;
+}
+
+.event-modify-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin-right: 25px;
+  margin-left: 25px;
 }
 
 .seats {

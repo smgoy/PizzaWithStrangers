@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
   events: state.events,
   currentUser: state.session.currentUser,
   city: state.city,
-  cities: state.cities
+  cities: state.cities,
+  eventDisplay: state.eventDisplay
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import EventDropdown from './event_dropdown';
+import EventDropdown from './event_dropdown_container';
 
 class EventsIndex extends React.Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class EventsIndex extends React.Component {
     this.eventPermission = this.eventPermission.bind(this);
     this.correctCity = this.correctCity.bind(this);
     this.becomeHost = this.becomeHost.bind(this);
+    this.displayEvents = this.displayEvents.bind(this);
   }
 
   quickSort(events) {
@@ -67,6 +68,16 @@ class EventsIndex extends React.Component {
     }
   }
 
+  displayEvents(week, month, year) {
+    if (this.props.eventDisplay === 'this week') {
+      return this.decorateEvent(week);
+    } else if (this.props.eventDisplay === 'this month') {
+      return this.decorateEvent(month);
+    } else if (this.props.eventDisplay === 'this year') {
+      return this.decorateEvent(year);
+    }
+  }
+
   decorateEvent(eventList) {
     if (eventList.length === 0) {
       return (
@@ -84,13 +95,26 @@ class EventsIndex extends React.Component {
             </div>
           );
         } else if (this.props.currentUser.hosted_events.includes(eventObj.id)) {
-          button = <a data-id={eventObj.id} onClick={this.destroyEvent.bind(this)} className="join">Delete</a>;
-        } else {
           button = (
-            <div className="event-join-container">
-              <a data-id={eventObj.id} onClick={this.joinEvent.bind(this)} className="join">Join</a>
+            <div className="event-modify-container">
+              <a className="join">Edit</a>
+              <a data-id={eventObj.id} onClick={this.destroyEvent.bind(this)} className="join">Delete</a>
             </div>
-          );
+          )
+        } else {
+          if (eventObj.seats == 0) {
+            button = (
+              <div className="event-join-container">
+                <a className="join-disabled">Missed Out</a>
+              </div>
+            );
+          } else {
+            button = (
+              <div className="event-join-container">
+                <a data-id={eventObj.id} onClick={this.joinEvent.bind(this)} className="join">Join</a>
+              </div>
+            );
+          }
         }
 
         let titleShortner;
@@ -123,14 +147,17 @@ class EventsIndex extends React.Component {
     let thisYear = [];
 
     Object.keys(events).forEach( id => {
-      if (Date.parse(events[id].date) > Date.today() && Date.parse(events[id].date) < Date.today().add(7).days()) {
+      if (Date.parse(events[id].date) >= Date.today() && Date.parse(events[id].date) < Date.today().add(7).days()) {
         thisWeek.push(events[id]);
-      } else if (Date.parse(events[id].date) < Date.today().addMonths(1)) {
+      } else if (Date.parse(events[id].date) >= Date.today() && Date.parse(events[id].date) < Date.today().addMonths(1)) {
         thisMonth.push(events[id]);
-      } else if (Date.parse(events[id].date) < Date.today().addYears(1)) {
+      } else if (Date.parse(events[id].date) >= Date.today() && Date.parse(events[id].date) < Date.today().addYears(1)) {
         thisYear.push(events[id]);
       }
     });
+    
+    thisMonth = thisMonth.concat(thisWeek);
+    thisYear = thisYear.concat(thisMonth);
 
     thisWeek = this.quickSort(thisWeek);
     thisMonth = this.quickSort(thisMonth);
@@ -148,7 +175,7 @@ class EventsIndex extends React.Component {
           <br />
 
           <div className="display-events">
-            {this.decorateEvent(thisYear)}
+            {this.displayEvents(thisWeek, thisMonth, thisYear)}
           </div>
         </div>
       </div>
