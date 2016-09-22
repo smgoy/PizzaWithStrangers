@@ -42,6 +42,8 @@ export const EventDisplay = (state = "this week", action) => {
   switch (action.type) {
     case eventsConstants.EVENT_DISPLAY:
       return action.timePeriod;
+    case eventsConstants.RESET_EVENT_DISPLAY:
+      return "this week";
     default:
       return state;
   }

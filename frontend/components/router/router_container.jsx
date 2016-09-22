@@ -3,7 +3,9 @@ import AppRouter from './app_router';
 import { requestCities,
          requestCity,
          clearCity } from '../../actions/cities_actions';
-import { requestEvents, clearEventErrors } from '../../actions/events_actions';
+import { requestEvents,
+         clearEventErrors,
+         resetEventDisplay } from '../../actions/events_actions';
 import { clearErrors, clearUser } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
@@ -18,7 +20,8 @@ const mapDispatchToProps = dispatch => ({
   clearErrors: () => dispatch(clearErrors()),
   clearUser: () => dispatch(clearUser()),
   clearCity: () => dispatch(clearCity()),
-  clearEventErrors: () => dispatch(clearEventErrors())
+  clearEventErrors: () => dispatch(clearEventErrors()),
+  resetEventDisplay: () => dispatch(resetEventDisplay())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppRouter);

@@ -11,6 +11,7 @@ export const eventsConstants = {
   CLEAR_EVENT_ERRORS: "CLEAR_EVENT_ERRORS",
   DESTROY_EVENT: "DESTROY_EVENT",
   EVENT_DISPLAY: "EVENT_DISPLAY",
+  RESET_EVENT_DISPLAY: "RESET_EVENT_DISPLAY",
   RECEIVE_EVENT: "RECEIVE_EVENT"
 };
 
@@ -71,6 +72,10 @@ export const destroyEvent = eventId => ({
 export const eventDisplay = timePeriod => ({
   type: eventsConstants.EVENT_DISPLAY,
   timePeriod
+});
+
+export const resetEventDisplay = () => ({
+  type: eventsConstants.RESET_EVENT_DISPLAY
 });
 
 export const receiveEvent = event => ({

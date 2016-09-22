@@ -25,7 +25,9 @@ class AppRouter extends React.Component{
         <Route path='/cities' component={CitiesContainer}
                               onEnter={this.requestCities.bind(this)}
                               onLeave={this.clearCity.bind(this)} />
-        <Route path='/city/:cityId' component={CityDetailContainer} onEnter={this.requestCity.bind(this)} />
+        <Route path='/city/:cityId' component={CityDetailContainer}
+                                    onEnter={this.requestCity.bind(this)}
+                                    onLeave={this.resetEventDisplay.bind(this)}/>
         <Route path='/new-event' component={EventFormContainer}
                                  onLeave={this.clearErrors.bind(this, 'event')}
                                  onEnter={this.redirectIfNotLoggedIn.bind(this)} />
@@ -38,6 +40,10 @@ class AppRouter extends React.Component{
 
   clearCity() {
     this.props.clearCity();
+  }
+
+  resetEventDisplay() {
+    this.props.resetEventDisplay();
   }
 
   clearErrors(type) {
