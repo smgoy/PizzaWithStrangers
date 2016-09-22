@@ -78,26 +78,39 @@ class EventsIndex extends React.Component {
       return eventList.map( eventObj => {
         let button;
         if (this.props.currentUser.attendances.includes(eventObj.id)) {
-          button = <a data-id={eventObj.id} onClick={this.ditchEvent.bind(this)} className="join">Ditch</a>;
+          button = (
+            <div className="event-join-container">
+              <a data-id={eventObj.id} onClick={this.ditchEvent.bind(this)} className="join">Ditch</a>
+            </div>
+          );
         } else if (this.props.currentUser.hosted_events.includes(eventObj.id)) {
           button = <a data-id={eventObj.id} onClick={this.destroyEvent.bind(this)} className="join">Delete</a>;
         } else {
-          button = <a data-id={eventObj.id} onClick={this.joinEvent.bind(this)} className="join">Join</a>;
-        }
-        return(
-          <div key={eventObj.id}>
-            <div className="event-container">
-              <div className="event-description">
-                <p className="desc">{eventObj.name}:</p>
-                <p className="desc">{eventObj.seats} Seat Left</p>
-              </div>
-              <div className="event-details">
-                <p className="details">{eventObj.address}</p>
-                <p className="details">{eventObj.date} at {eventObj.time}</p>
-                {button}
-              </div>
+          button = (
+            <div className="event-join-container">
+              <a data-id={eventObj.id} onClick={this.joinEvent.bind(this)} className="join">Join</a>
             </div>
-          </div>);
+          );
+        }
+
+        let titleShortner;
+        if (eventObj.name.length >= 21) {
+          titleShortner = eventObj.name.slice(0,19) + '...';
+        } else {
+          titleShortner = eventObj.name;
+        }
+
+        return(
+          <div className="event-container" key={eventObj.id}>
+            <h3 className="title">{titleShortner}</h3>
+            <hr />
+            <p className="event-info"><span className='seats'>{eventObj.seats}</span> Seat Left</p>
+            <p className="event-info">{eventObj.address}</p>
+            <p className="event-info">{eventObj.date}</p>
+            <p className="event-info">at {eventObj.time}</p>
+            {button}
+          </div>
+        );
       });
     }
   }
@@ -134,8 +147,9 @@ class EventsIndex extends React.Component {
           {this.eventPermission()}
           <br />
 
-
-
+          <div className="display-events">
+            {this.decorateEvent(thisYear)}
+          </div>
         </div>
       </div>
     );
