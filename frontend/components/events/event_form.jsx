@@ -6,26 +6,37 @@ import moment from 'moment';
 class EventForm extends React.Component {
   constructor(props) {
     super(props);
+    if (this.props.location.pathname === '/new-event') {
+      this.state = {
+        city_id: this.props.city_id,
+        address: '',
+        time: '',
+        seats: '',
+        name: ''
+      };
+    } else {
+      const { event } = this.props;
+      const eventTime = new Date(event.date + ', ' + event.time);
 
-    this.state = {
-      city_id: this.props.city_id,
-      address: '',
-      time: '',
-      seats: '',
-      name: '',
-      errors: []
-    };
+      this.state = {
+        city_id: this.props.city_id,
+        address: event.address,
+        time: eventTime,
+        seats: event.seats,
+        name: event.name
+      };
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
-    debugger;
     if (newProps.eventErrors.length === 0) {
       hashHistory.push(`/city/${this.props.city_id}`);
     }
   }
 
   update(field, e){
+    debugger;
     let val;
     if (field === 'time') {
       val = moment(e._d).format("YYYY-MM-DDTHH:mm");
@@ -143,7 +154,8 @@ class EventForm extends React.Component {
                   <div className="col-md-8 col-md-offset-2">
                     <Datetime onChange={this.update.bind(this, "time")}
                               inputProps={{className: `form-control${errorClass}`,
-                                           placeholder: "Time and Date"}} />
+                                           placeholder: "Time and Date"}}
+                              defaultValue={this.state.time}/>
                   </div>
                 </div>
 

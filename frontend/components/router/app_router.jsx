@@ -29,6 +29,9 @@ class AppRouter extends React.Component{
         <Route path='/new-event' component={EventFormContainer}
                                  onLeave={this.clearErrors.bind(this, 'event')}
                                  onEnter={this.redirectIfNotLoggedIn.bind(this)} />
+        <Route path='/edit-event' component={EventFormContainer}
+                                onLeave={this.clearErrors.bind(this, 'event')}
+                                onEnter={this.redirectIfNotLoggedIn.bind(this)} />
       </Route>
     );
   }

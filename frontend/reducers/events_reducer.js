@@ -46,3 +46,12 @@ export const EventDisplay = (state = "this week", action) => {
       return state;
   }
 };
+
+export const EventReducer = (state = {}, action) => {
+  switch (action.type) {
+    case eventsConstants.RECEIVE_EVENT:
+      return action.event;
+    default:
+      return state;
+  }
+};

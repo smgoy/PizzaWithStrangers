@@ -47,6 +47,13 @@ class EventsIndex extends React.Component {
     this.props.destroyEvent(eventId);
   }
 
+  editEvent(e) {
+    e.preventDefault();
+    const event = $(e.currentTarget).data('event');
+    this.props.receiveEvent(event);
+    this.props.router.push('/edit-event');
+  }
+
   becomeHost() {
     const userId = this.props.currentUser.id;
     this.props.becomeHost(userId);
@@ -97,7 +104,7 @@ class EventsIndex extends React.Component {
         } else if (this.props.currentUser.hosted_events.includes(eventObj.id)) {
           button = (
             <div className="event-modify-container">
-              <a className="join">Edit</a>
+              <a data-event={JSON.stringify(eventObj)} onClick={this.editEvent.bind(this)} className="join">Edit</a>
               <a data-id={eventObj.id} onClick={this.destroyEvent.bind(this)} className="join">Delete</a>
             </div>
           )
@@ -155,7 +162,7 @@ class EventsIndex extends React.Component {
         thisYear.push(events[id]);
       }
     });
-    
+
     thisMonth = thisMonth.concat(thisWeek);
     thisYear = thisYear.concat(thisMonth);
 

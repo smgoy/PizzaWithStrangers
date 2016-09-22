@@ -4,7 +4,8 @@ import { createAttendance,
          destroyAttendance } from '../../actions/attendance_actions';
 import { addSeat,
          subtractSeat,
-         destroyEvent } from '../../actions/events_actions';
+         destroyEvent,
+         receiveEvent } from '../../actions/events_actions';
 import { becomeHost } from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
@@ -21,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
   addSeat: eventId => dispatch(addSeat(eventId)),
   subtractSeat: eventId => dispatch(subtractSeat(eventId)),
   becomeHost: userId => dispatch(becomeHost(userId)),
-  destroyEvent: eventId => dispatch(destroyEvent(eventId))
+  destroyEvent: eventId => dispatch(destroyEvent(eventId)),
+  receiveEvent: event => dispatch(receiveEvent(event))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsIndex);

@@ -9,7 +9,8 @@ export const eventsConstants = {
   RECEIVE_EVENT_ERRORS: "RECEIVE_EVENT_ERRORS",
   CLEAR_EVENT_ERRORS: "CLEAR_EVENT_ERRORS",
   DESTROY_EVENT: "DESTROY_EVENT",
-  EVENT_DISPLAY: "EVENT_DISPLAY"
+  EVENT_DISPLAY: "EVENT_DISPLAY",
+  RECEIVE_EVENT: "RECEIVE_EVENT"
 };
 
 export const requestEvents = cityId => ({
@@ -64,4 +65,9 @@ export const destroyEvent = eventId => ({
 export const eventDisplay = timePeriod => ({
   type: eventsConstants.EVENT_DISPLAY,
   timePeriod
+});
+
+export const receiveEvent = event => ({
+  type: eventsConstants.RECEIVE_EVENT,
+  event
 });
