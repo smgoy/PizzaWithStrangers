@@ -7,6 +7,7 @@ import UserFormContainer from '../user_form/user_form_container';
 import CitiesContainer from '../cities/cities_container';
 import CityDetailContainer from '../cities/city_detail_container';
 import EventFormContainer from '../events/event_form_container';
+import Dashboard from '../dashboard/dashboard';
 
 
 class AppRouter extends React.Component{
@@ -34,6 +35,8 @@ class AppRouter extends React.Component{
         <Route path='/edit-event' component={EventFormContainer}
                                 onLeave={this.clearErrors.bind(this, 'event')}
                                 onEnter={this.redirectIfNotLoggedIn.bind(this)} />
+        <Route path='/dashboard' component={Dashboard}
+                                 onEnter={this.redirectIfNotLoggedIn.bind(this)} />
       </Route>
     );
   }
