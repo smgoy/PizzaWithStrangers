@@ -58,6 +58,29 @@ party_names = ['My Cheesey Extravaganza', 'Pepperoni Heavan', 'Veggie Pizza Bash
   seats = [*5..10].sample
   name = party_names.sample
 
+  if [1,2,3,4].include?(i)
+    case i
+    when 1
+      seats = 0
+      city = 1
+      date = Faker::Date.between(Date.today, 1.week.from_now)
+      time = Faker::Time.between(date, date, :morning)
+    when 2
+      city = 1
+      host_id = 1
+      date = Faker::Date.between(Date.today, 1.week.from_now)
+      time = Faker::Time.between(date, date, :morning)
+    when 3
+      city = 1
+      date = Faker::Date.between(Date.today, 1.week.from_now)
+      time = Faker::Time.between(date, date, :morning)
+    when 4
+      city = 1
+      date = Faker::Date.between(Date.today, 1.week.from_now)
+      time = Faker::Time.between(date, date, :morning)
+    end
+  end
+
   Event.create!(host_id: host_id,
                 city_id: city,
                 address: address,
@@ -68,7 +91,7 @@ party_names = ['My Cheesey Extravaganza', 'Pepperoni Heavan', 'Veggie Pizza Bash
 end
 
 City.find(1).events.each_with_index do |event, i|
-  if i % 2 == 0 && event.id != 5
+  if i % 2 == 0 && event.host_id != 1 && event.id != 1
     Attendance.create!(user_id: 1, event_id: event.id)
   end
 end

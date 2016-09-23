@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class Dashboard extends React.Component {
 
@@ -23,7 +24,7 @@ class Dashboard extends React.Component {
     e.preventDefault();
     const event = $(e.currentTarget).data('event');
     this.props.receiveEvent(event);
-    this.props.router.push('/edit-event');
+    this.props.router.replace('/edit-event');
   }
 
   quickSort(events) {
@@ -153,4 +154,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);
