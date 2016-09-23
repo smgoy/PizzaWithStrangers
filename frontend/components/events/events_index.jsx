@@ -88,8 +88,11 @@ class EventsIndex extends React.Component {
   decorateEvent(eventList) {
     if (eventList.length === 0) {
       return (
-        <div className="event-container">
-          <p>Host a party</p>
+        <div className="no-party">
+          <p className="no-party-text">
+            What! There are no parties {this.props.eventDisplay}.
+            Host one why don't you!
+          </p>
         </div>
       );
     } else {
