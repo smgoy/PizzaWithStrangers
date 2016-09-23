@@ -112,7 +112,7 @@ class EventsIndex extends React.Component {
             </div>
           )
         } else {
-          if (eventObj.seats == 0) {
+          if (eventObj.seats === 0) {
             button = (
               <div className="event-join-container">
                 <a className="join-disabled">Missed Out</a>

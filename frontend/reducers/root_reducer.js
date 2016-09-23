@@ -5,7 +5,8 @@ import { CitiesReducer, CityReducer } from './cities_reducer';
 import { EventsReducer,
          EventErrors,
          EventDisplay,
-         EventReducer } from './events_reducer';
+         EventReducer,
+         UserEvents } from './events_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -15,7 +16,8 @@ const RootReducer = combineReducers({
   events: EventsReducer,
   eventErrors: EventErrors,
   eventDisplay: EventDisplay,
-  event: EventReducer
+  event: EventReducer,
+  userEvents: UserEvents
 });
 
 export default RootReducer;

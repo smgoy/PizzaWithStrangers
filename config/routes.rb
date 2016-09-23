@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :cities, only: [ :index, :show ] do
       resources :events, only: [ :index ]
     end
-    resources :events, only: [ :create, :update, :destroy ]
+    resources :events, only: [ :create, :update, :destroy, :user_events ]
+    get 'events/user_events', :to => 'events#user_events'
   end
 end

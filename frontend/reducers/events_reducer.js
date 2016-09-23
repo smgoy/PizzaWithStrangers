@@ -57,3 +57,24 @@ export const EventReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const UserEvents = (state = {attendances: {}, hosted_events: {}}, action) => {
+  switch(action.type) {
+    case eventsConstants.RECEIVE_USER_EVENTS:
+      if (!action.events.attendances) action.events.attendances = {};
+      if (!action.events.hosted_events) action.events.hosted_events = {};
+      return action.events;
+    case eventsConstants.DESTROY_USER_EVENT: {
+      const newState = Object.assign({}, state);
+      delete newState.attendances[action.eventId];
+      return newState;
+    }
+    case eventsConstants.DESTROY_HOST_EVENT: {
+      const newState = Object.assign({}, state);
+      delete newState.hosted_events[action.eventId];
+      return newState;
+    }
+    default:
+      return state;
+  }
+};

@@ -1,13 +1,15 @@
 import { requestEvents,
          createEvent,
          destroyEvent,
-         updateEvent } from '../util/events_api_util';
+         updateEvent,
+         requestUserEvents } from '../util/events_api_util';
 import { eventsConstants,
          receiveEvents,
          receiveEventErrors,
          addHostEvent,
          deleteHostEvent,
-         clearEventErrors } from '../actions/events_actions';
+         clearEventErrors,
+         receiveUserEvents } from '../actions/events_actions';
 
 const EventsMiddleware = ({dispatch}) => next => action => {
   const errorsCallback = e => {
@@ -36,11 +38,17 @@ const EventsMiddleware = ({dispatch}) => next => action => {
       updateEvent(successCallback, errorsCallback, event);
       return next(action);
     }
-    case eventsConstants.DESTROY_EVENT:
+    case eventsConstants.DESTROY_EVENT: {
       const successCallback = event => dispatch(deleteHostEvent(event));
       const eventId = action.eventId;
       destroyEvent(successCallback, eventId);
       return next(action);
+    }
+    case eventsConstants.REQUEST_USER_EVENTS: {
+      const successCallback = events => dispatch(receiveUserEvents(events));
+      requestUserEvents(successCallback);
+      return next(action);
+    }
     default:
       return next(action);
   }

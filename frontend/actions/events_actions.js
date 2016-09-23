@@ -12,7 +12,11 @@ export const eventsConstants = {
   DESTROY_EVENT: "DESTROY_EVENT",
   EVENT_DISPLAY: "EVENT_DISPLAY",
   RESET_EVENT_DISPLAY: "RESET_EVENT_DISPLAY",
-  RECEIVE_EVENT: "RECEIVE_EVENT"
+  RECEIVE_EVENT: "RECEIVE_EVENT",
+  REQUEST_USER_EVENTS: "REQUEST_USER_EVENTS",
+  RECEIVE_USER_EVENTS: "RECEIVE_USER_EVENTS",
+  DESTROY_USER_EVENT: "DESTROY_USER_EVENT",
+  DESTROY_HOST_EVENT: "DESTROY_HOST_EVENT"
 };
 
 export const requestEvents = cityId => ({
@@ -81,4 +85,23 @@ export const resetEventDisplay = () => ({
 export const receiveEvent = event => ({
   type: eventsConstants.RECEIVE_EVENT,
   event
+});
+
+export const requestUserEvents = () => ({
+  type: eventsConstants.REQUEST_USER_EVENTS
+});
+
+export const receiveUserEvents = events => ({
+  type: eventsConstants.RECEIVE_USER_EVENTS,
+  events
+});
+
+export const destroyUserEvent = eventId => ({
+  type: eventsConstants.DESTROY_USER_EVENT,
+  eventId
+});
+
+export const destroyHostEvent = eventId => ({
+  type: eventsConstants.DESTROY_HOST_EVENT,
+  eventId
 });

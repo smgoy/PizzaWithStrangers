@@ -5,7 +5,8 @@ import { requestCities,
          clearCity } from '../../actions/cities_actions';
 import { requestEvents,
          clearEventErrors,
-         resetEventDisplay } from '../../actions/events_actions';
+         resetEventDisplay,
+         requestUserEvents } from '../../actions/events_actions';
 import { clearErrors, clearUser } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
@@ -21,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
   clearUser: () => dispatch(clearUser()),
   clearCity: () => dispatch(clearCity()),
   clearEventErrors: () => dispatch(clearEventErrors()),
-  resetEventDisplay: () => dispatch(resetEventDisplay())
+  resetEventDisplay: () => dispatch(resetEventDisplay()),
+  requestUserEvents: () => dispatch(requestUserEvents())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppRouter);

@@ -31,6 +31,12 @@ class Api::EventsController < ApplicationController
     render json: @event
   end
 
+  def user_events
+    @attendances = current_user.events
+    @hosted_events = current_user.hosted_events
+    render 'api/events/user_events'
+  end
+
   private
 
   def event_params

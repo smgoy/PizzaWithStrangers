@@ -28,7 +28,6 @@ export const destroyEvent = (success, eventId) => {
 };
 
 export const updateEvent = (success, error, data) => {
-  debugger;
   $.ajax({
     url: `api/events/${data.event.id}`,
     method: 'PATCH',
@@ -36,5 +35,14 @@ export const updateEvent = (success, error, data) => {
     data,
     success,
     error
+  });
+};
+
+export const requestUserEvents = (success) => {
+  $.ajax({
+    url: `api/events/user_events`,
+    method: 'get',
+    dataType: 'json',
+    success
   });
 };
