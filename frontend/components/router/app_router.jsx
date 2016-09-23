@@ -7,7 +7,7 @@ import UserFormContainer from '../user_form/user_form_container';
 import CitiesContainer from '../cities/cities_container';
 import CityDetailContainer from '../cities/city_detail_container';
 import EventFormContainer from '../events/event_form_container';
-import Dashboard from '../dashboard/dashboard';
+import Dashboard from '../dashboard/dashboard_container';
 
 
 class AppRouter extends React.Component{
