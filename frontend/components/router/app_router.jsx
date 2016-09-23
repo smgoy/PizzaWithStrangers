@@ -36,7 +36,7 @@ class AppRouter extends React.Component{
                                 onLeave={this.clearErrors.bind(this, 'event')}
                                 onEnter={this.redirectIfNotLoggedIn.bind(this)} />
         <Route path='/dashboard' component={Dashboard}
-                                 onEnter={this.setupDashboard.bind(this)} />
+                                 onEnter={this.redirectIfNotLoggedIn.bind(this)} />
       </Route>
     );
   }
@@ -54,14 +54,6 @@ class AppRouter extends React.Component{
       this.props.clearEventErrors();
     } else {
       this.props.clearErrors();
-    }
-  }
-
-  setupDashboard() {
-    if (this.props.currentUser) {
-      this.props.requestUserEvents();
-    } else {
-      this.redirectIfNotLoggedIn();
     }
   }
 
