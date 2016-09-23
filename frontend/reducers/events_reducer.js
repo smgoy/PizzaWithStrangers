@@ -6,21 +6,33 @@ export const EventsReducer = (state = {}, action) => {
     case eventsConstants.RECEIVE_EVENTS:
       return action.events;
     case eventsConstants.ADD_SEAT: {
-      const newState = Object.assign({}, state);
-      const seats = state[action.eventId].seats + 1;
-      newState[action.eventId].seats = seats;
-      return newState;
+      if (state[action.eventId]) {
+        const newState = Object.assign({}, state);
+        const seats = state[action.eventId].seats + 1;
+        newState[action.eventId].seats = seats;
+        return newState;
+      } else {
+        return state;
+      }
     }
     case eventsConstants.SUBTRACT_SEAT: {
-      const newState = Object.assign({}, state);
-      const seats = state[action.eventId].seats - 1;
-      newState[action.eventId].seats = seats;
-      return newState;
+      if (state[action.eventId]) {
+        const newState = Object.assign({}, state);
+        const seats = state[action.eventId].seats - 1;
+        newState[action.eventId].seats = seats;
+        return newState;
+      } else {
+        return state;
+      }
     }
     case eventsConstants.DELETE_HOST_EVENT: {
-      const newState = Object.assign({}, state);
-      delete newState[action.event.id];
-      return newState;
+      if (state[action.event.id]) {
+        const newState = Object.assign({}, state);
+        delete newState[action.event.id];
+        return newState;
+      } else {
+        return state;
+      }
     }
     default:
       return state;
