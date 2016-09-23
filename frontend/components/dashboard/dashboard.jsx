@@ -37,12 +37,12 @@ class Dashboard extends React.Component {
     return this.quickSort(left).concat([el]).concat(this.quickSort(right));
   }
 
-  decorateEvent(eventList) {
+  decorateEvent(eventList, text) {
     if (eventList.length === 0) {
       return (
         <div className="no-party">
           <p className="no-party-text">
-            C'mon, get to partying.
+            {text}
           </p>
         </div>
       );
@@ -122,7 +122,7 @@ class Dashboard extends React.Component {
           </div>
           <div className="events-container">
             <div className="display-events">
-              {this.decorateEvent(hostedEvents)}
+              {this.decorateEvent(hostedEvents, "C'mon, get to hosting!")}
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@ class Dashboard extends React.Component {
         </div>
         <div className="events-container">
           <div className="display-events">
-            {this.decorateEvent(attendedEvents)}
+            {this.decorateEvent(attendedEvents, "C'mon, get to partying!")}
           </div>
         </div>
 
