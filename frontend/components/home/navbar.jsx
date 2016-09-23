@@ -9,7 +9,11 @@ const Navbar = ({session, logout}) => {
   if (currentUser) {
     greeting = (
       [
-        <li key='1'><a>Hello, {currentUser.f_name}</a></li>,
+        <li key='1'>
+          <a href='#/dashboard'>
+            Hello, {currentUser.f_name} <div className='circle'>{currentUser.attendances.length}</div>
+          </a>
+        </li>,
         <li key='2' onClick={logout}><a href='#/'>Logout</a></li>
       ]
     );
