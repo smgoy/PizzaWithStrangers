@@ -96,7 +96,7 @@ class SessionForm extends React.Component {
 			submit = "Login";
 		} else {
 			welcomeText = "Hey There Stranger!";
-			text = "If you're already parting with us";
+			text = "If you're already partying with us";
 			submit = "Sign Up";
 		}
 
