@@ -54,7 +54,7 @@ party_names = ['My Cheesey Extravaganza', 'Pepperoni Heavan', 'Veggie Pizza Bash
   else
     date = Faker::Date.between(Date.today, 1.year.from_now)
   end
-  time = Faker::Time.between(date, date, :morning)
+  time = Faker::Time.between(date, date, :evening)
   seats = [*5..10].sample
   name = party_names.sample
 
@@ -64,20 +64,20 @@ party_names = ['My Cheesey Extravaganza', 'Pepperoni Heavan', 'Veggie Pizza Bash
       seats = 0
       city = 1
       date = Faker::Date.between(Date.today, 1.week.from_now)
-      time = Faker::Time.between(date, date, :morning)
+      time = Faker::Time.between(date, date, :evening)
     when 2
       city = 1
       host_id = 1
       date = Faker::Date.between(Date.today, 1.week.from_now)
-      time = Faker::Time.between(date, date, :morning)
+      time = Faker::Time.between(date, date, :evening)
     when 3
       city = 1
       date = Faker::Date.between(Date.today, 1.week.from_now)
-      time = Faker::Time.between(date, date, :morning)
+      time = Faker::Time.between(date, date, :evening)
     when 4
       city = 1
       date = Faker::Date.between(Date.today, 1.week.from_now)
-      time = Faker::Time.between(date, date, :morning)
+      time = Faker::Time.between(date, date, :evening)
     end
   end
 
