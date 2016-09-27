@@ -18,7 +18,7 @@ Users can party with Pizza With Strangers all over the globe. Users can visit di
 ### Users
 - Users can either signup, login or try out the website using the demo login—which has preloaded data to help the user navigate the site.
 
-![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1473447785/signup_page_a3hsgl.png)
+![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1474955100/signup_page_gocaec.png)
 
 ### Cities
 - In the cities index page, the user is able to view all of the different cities around the globe where pizza parties are currently being hosted.
@@ -28,22 +28,23 @@ Users can party with Pizza With Strangers all over the globe. Users can visit di
 ### City/Events
 - In the city show page, the user is able to view all of the events being hosted in that city.
 
-![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1473448585/city_show_page_tisrvp.png)
+![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1474955386/city_show_page_ry7lxk.png)
 
 - Users can see where the event is hosted as well as how many seats are available.
 
-![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1473449371/events_show_uecycx.png)
+![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1474955638/events_show_uov8zz.png)
 
 - Users have the ability to create new events or become a host if they do not yet have hosting privileges.
 
-![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1473448627/host_option_er4ylr.png)
+![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1474955791/host_option_gyz7lk.png)
 
 ### Attending Events
 
 - Users can join or ditch events. When updating their attendance, the seat number dynamically updates in the view.
-- Hosts also have the ability to delete events that they are hosting.
+- Hosts also have the ability to delete and edit events that they are hosting.
+- The join button is disabled when the seat count reaches zero.
 
-![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1473449423/user_event_options_zljhyk.png)
+![alt tag](http://res.cloudinary.com/dcbqili0f/image/upload/v1474955942/user_event_options_namwo3.png)
 
 ## Future Plans
 
