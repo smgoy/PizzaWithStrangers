@@ -38,6 +38,14 @@ class Dashboard extends React.Component {
     return this.quickSort(left).concat([el]).concat(this.quickSort(right));
   }
 
+  seat(seats) {
+    if (seats === 1) {
+      return 'Seat';
+    } else {
+      return 'Seats';
+    }
+  }
+
   decorateEvent(eventList, text) {
     if (eventList.length === 0) {
       return (
@@ -90,7 +98,7 @@ class Dashboard extends React.Component {
           <div className="event-container" key={eventObj.id}>
             <h3 className="title">{titleShortner}</h3>
             <hr />
-            <p className="event-info"><span className='seats'>{eventObj.seats}</span> Seat Left</p>
+            <p className="event-info"><span className='seats'>{eventObj.seats}</span> {this.seat(eventObj.seats)} Left</p>
             <p className="event-info">{eventObj.address}</p>
             <p className="event-info">{eventObj.date}</p>
             <p className="event-info">at {eventObj.time}</p>
