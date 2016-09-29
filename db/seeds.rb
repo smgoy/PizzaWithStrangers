@@ -10,6 +10,8 @@
 User.create!(email: "guest_user@example.com", password: "guestPassword",
              f_name: "Thanks for Visiting", city_id: 1, host: true)
 
+puts "about to add users"
+
 100.times do
   f_name = Faker::Name.first_name
   l_name = Faker::Name.last_name
@@ -19,9 +21,11 @@ User.create!(email: "guest_user@example.com", password: "guestPassword",
 
   profile_image = HTTParty.get('http://uifaces.com/api/v1/random')["image_urls"]["normal"]
 
-  User.create!(email: email, password: password, profile_image: profile_image,
-               f_name: f_name, city_id: city_id, host: true)
+  User.create!(email: email, password: password, pofile_image: profile_image,
+               f_name: f_name, l_name: l_name, city_id: city_id, host: true)
 end
+
+puts 'added users'
 
 City.create!(name: "San Francisco", image: 'http://res.cloudinary.com/dcbqili0f/image/upload/v1473376844/sf_etkp9p.jpg')
 City.create!(name: "DC", image: 'http://res.cloudinary.com/dcbqili0f/image/upload/v1473376813/dc_ea8lgf.jpg')
@@ -98,3 +102,14 @@ City.find(1).events.each_with_index do |event, i|
     Attendance.create!(user_id: 1, event_id: event.id)
   end
 end
+
+puts "creating attendances"
+
+Event.all.each do |event|
+  [*10..15].sample.times do
+    user_id = [*2..101].sample
+    Attendance.create!(user_id: user_id, event_id: event.id)
+  end
+end
+
+puts "finished"

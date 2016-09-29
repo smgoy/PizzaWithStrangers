@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import EventDropdown from './event_dropdown_container';
-import ViewAttendees from '../view_attendees/view_attendees';
+import ViewAttendees from '../view_attendees/view_attendees_container';
 
 class EventsIndex extends React.Component {
   constructor(props) {

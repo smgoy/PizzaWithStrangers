@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import viewAttendees from './view_attendees';
-import { requestAttendees } from '../../actions/events_actions';
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => ({
+  eventAttendees: state.eventAttendees
+});
 
-};
-
-export default connect(null, mapDispatchToProps)(viewAttendees);
+export default connect(mapStateToProps, null)(viewAttendees);
