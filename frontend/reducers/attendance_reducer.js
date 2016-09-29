@@ -1,8 +1,11 @@
 import merge from 'lodash.merge';
 import { attendanceConstants } from '../actions/attendance_actions';
 
-const AttendanceReducer = (state = {}, action) => {
-
+export const AttendeesReducer = (state = {}, action) => {
+  switch (action.type) {
+    case attendanceConstants.RECEIVE_ATTENDEES:
+      return action.attendees;
+    default:
+      return state;
+  }
 };
-
-export default AttendanceReducer;

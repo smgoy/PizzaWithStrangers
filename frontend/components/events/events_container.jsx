@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import EventsIndex from './events_index';
 import { createAttendance,
-         destroyAttendance } from '../../actions/attendance_actions';
+         destroyAttendance,
+         requestAttendees } from '../../actions/attendance_actions';
 import { addSeat,
          subtractSeat,
          destroyEvent,
-         receiveEvent,
-         requestAttendees } from '../../actions/events_actions';
+         receiveEvent } from '../../actions/events_actions';
 import { becomeHost } from '../../actions/user_actions';
 
 const mapStateToProps = state => ({

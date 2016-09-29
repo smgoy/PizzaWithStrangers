@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import SessionReducer from './session_reducer';
 import UserReducer from './user_reducer.js';
 import { CitiesReducer, CityReducer } from './cities_reducer';
+import { AttendanceReducer } from './attendance_reducer';
 import { EventsReducer,
          EventErrors,
          EventDisplay,
@@ -17,7 +18,8 @@ const RootReducer = combineReducers({
   eventErrors: EventErrors,
   eventDisplay: EventDisplay,
   event: EventReducer,
-  userEvents: UserEvents
+  userEvents: UserEvents,
+  eventAttendees: AttendanceReducer
 });
 
 export default RootReducer;

@@ -17,3 +17,12 @@ export const destroyAttendance = (success, data) => {
     success
   });
 };
+
+export const requestAttendees = (success, id) => {
+  $.ajax({
+    url: `api/attendances/${id}`,
+    method: 'GET',
+    dataType: 'json',
+    success
+  });
+};
