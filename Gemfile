@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cloudinary'
 gem 'faker', '1.6.6'
+gem 'httparty'
 
 group :production do
   gem 'newrelic_rpm'

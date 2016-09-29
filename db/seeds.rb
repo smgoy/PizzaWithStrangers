@@ -10,13 +10,16 @@
 User.create!(email: "guest_user@example.com", password: "guestPassword",
              f_name: "Thanks for Visiting", city_id: 1, host: true)
 
-1.upto(20) do
+100.times do
   f_name = Faker::Name.first_name
+  l_name = Faker::Name.last_name
   email = Faker::Internet.email(f_name)
   password = Faker::Internet.password(8)
   city_id = [1,2,3,4,5,6,7,8,9].sample
 
-  User.create!(email: email, password: password,
+  profile_image = HTTParty.get('http://uifaces.com/api/v1/random')["image_urls"]["normal"]
+
+  User.create!(email: email, password: password, profile_image: profile_image,
                f_name: f_name, city_id: city_id, host: true)
 end
 
