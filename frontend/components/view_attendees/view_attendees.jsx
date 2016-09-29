@@ -20,6 +20,21 @@ class ViewAttendees extends React.Component {
     this.setState({show: false});
   }
 
+  viewAttendees() {
+    const attendee = this.props.eventAttendees;
+    return Object.keys(attendee).map( id => {
+      return (
+        <div key={id} className="show-attendees">
+          <img key={`profile-image-${id}`} src={attendee[id].profile_image} />
+          <p key={`name-${id}`}
+             className='display-name'>
+             {`${attendee[id].f_name} ${attendee[id].l_name}`}
+          </p>
+        </div>
+      );
+    });
+  }
+
   render() {
     return (
       <ButtonToolbar>
@@ -40,7 +55,7 @@ class ViewAttendees extends React.Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-
+            {this.viewAttendees()}
           </Modal.Body>
         </Modal>
       </ButtonToolbar>

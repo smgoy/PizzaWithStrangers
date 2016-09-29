@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import Dashboard from './dashboard';
 import { createAttendance,
-         destroyAttendance } from '../../actions/attendance_actions';
+         destroyAttendance,
+         requestAttendees } from '../../actions/attendance_actions';
 import { addSeat,
          destroyEvent,
          destroyUserEvent,
@@ -22,7 +23,8 @@ const mapDispatchToProps = dispatch => ({
   destroyHostEvent: eventId => dispatch(destroyHostEvent(eventId)),
   becomeHost: userId => dispatch(becomeHost(userId)),
   destroyEvent: eventId => dispatch(destroyEvent(eventId)),
-  receiveEvent: event => dispatch(receiveEvent(event))
+  receiveEvent: event => dispatch(receiveEvent(event)),
+  requestAttendees: eventId => dispatch(requestAttendees(eventId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

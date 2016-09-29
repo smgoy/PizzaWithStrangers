@@ -7,8 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #guest account:
-User.create!(email: "guest_user@example.com", password: "guestPassword",
-             f_name: "Thanks for Visiting", city_id: 1, host: true)
+profile_image = HTTParty.get('http://uifaces.com/api/v1/random')["image_urls"]["normal"]
+User.create!(email: "sam.gyory@gmail.com", password: "guestPassword", pofile_image: profile_image,
+             f_name: "Sam", l_name: "Gyory", city_id: 1, host: true)
 
 puts "about to add users"
 

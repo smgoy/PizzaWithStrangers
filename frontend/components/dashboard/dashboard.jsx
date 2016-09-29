@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import ViewAttendees from '../view_attendees/view_attendees_container';
 
 class Dashboard extends React.Component {
 
@@ -103,6 +104,10 @@ class Dashboard extends React.Component {
             <p className="event-info">{eventObj.date}</p>
             <p className="event-info">at {eventObj.time}</p>
             {button}
+            <ViewAttendees
+              requestAttendees={this.props.requestAttendees}
+              eventId={eventObj.id}
+              eventName={eventObj.name} />
           </div>
         );
       });

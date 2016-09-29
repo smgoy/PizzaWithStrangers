@@ -564,6 +564,11 @@ hr {
   margin-bottom: 8px;
 }
 
+.show-attendees:focus,
+.show-attendees:active {
+  outline: none;
+}
+
 .show-attendees:hover {
   color: #C93514;
 }
@@ -573,6 +578,23 @@ hr {
 }
 
 .modal-body {
-  height: 250px;
+  height: 350px;
   overflow-y: auto;
+}
+
+.show-attendees {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.display-name {
+  margin-bottom: 0;
+  font-size: 17px;
+  margin-left: 20px;
+}
+
+.show-attendees:hover .display-name {
+  color: #2E3831;
 }
