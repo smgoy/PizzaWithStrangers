@@ -20,7 +20,7 @@ export const destroyAttendance = (success, data) => {
 
 export const requestAttendees = (success, id) => {
   $.ajax({
-    url: `api/attendances/${id}`,
+    url: `api/attendances/event_attendees/${id}`,
     method: 'GET',
     dataType: 'json',
     success

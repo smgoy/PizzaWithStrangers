@@ -12,41 +12,40 @@ class ViewAttendees extends React.Component {
   }
 
   showModal() {
-      this.props.requestAttendees(this.props.eventId);
-      this.setState({show: true});
-    }
+    this.props.requestAttendees(this.props.eventId);
+    this.setState({show: true});
+  }
 
-    hideModal() {
-      this.setState({show: false});
-    }
+  hideModal() {
+    this.setState({show: false});
+  }
 
-    render() {
-      return (
-        <ButtonToolbar>
-          <div className='show-attendees-wrapper'>
-            <Button bsClass="show-attendees" onClick={this.showModal}>
-              See who's attending
-            </Button>
-          </div>
+  render() {
+    return (
+      <ButtonToolbar>
+        <div className='show-attendees-wrapper'>
+          <Button bsClass="show-attendees" onClick={this.showModal}>
+            See who's attending
+          </Button>
+        </div>
 
-          <Modal
-            {...this.props}
-            show={this.state.show}
-            onHide={this.hideModal}
-            dialogClassName="custom-modal"
-          >
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-lg">
-                Attendees for {this.props.eventName}
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
+        <Modal
+          show={this.state.show}
+          onHide={this.hideModal}
+          dialogClassName="custom-modal"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-lg">
+              People Attending {this.props.eventName}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
 
-            </Modal.Body>
-          </Modal>
-        </ButtonToolbar>
-      );
-    }
+          </Modal.Body>
+        </Modal>
+      </ButtonToolbar>
+    );
+  }
 }
 
 export default ViewAttendees;
