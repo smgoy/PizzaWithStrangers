@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     end
     resources :events, only: [ :create, :update, :destroy, :user_events ]
     get 'events/user_events', :to => 'events#user_events'
+    get 'attendances/event_attendees/:id', :to => 'attendances#event_attendees'
   end
 end

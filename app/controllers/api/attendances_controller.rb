@@ -20,6 +20,12 @@ class Api::AttendancesController < ApplicationController
     render json: @attendance
   end
 
+  def event_attendances
+    event = Event.find_by_id(params[:id])
+    @attendees = event.attendees
+    render 'api/users/index'
+  end
+
   private
 
   def attendance_params
