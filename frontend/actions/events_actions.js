@@ -16,7 +16,9 @@ export const eventsConstants = {
   REQUEST_USER_EVENTS: "REQUEST_USER_EVENTS",
   RECEIVE_USER_EVENTS: "RECEIVE_USER_EVENTS",
   DESTROY_USER_EVENT: "DESTROY_USER_EVENT",
-  DESTROY_HOST_EVENT: "DESTROY_HOST_EVENT"
+  DESTROY_HOST_EVENT: "DESTROY_HOST_EVENT",
+  RECEIVE_ATTENDEES: "RECEIVE_ATTENDEES",
+  REQUEST_ATTENDEES: "REQUEST_ATTENDEES"
 };
 
 export const requestEvents = cityId => ({
@@ -103,5 +105,15 @@ export const destroyUserEvent = eventId => ({
 
 export const destroyHostEvent = eventId => ({
   type: eventsConstants.DESTROY_HOST_EVENT,
+  eventId
+});
+
+export const receiveAttendees = attendees => ({
+  type: eventsConstants.RECEIVE_ATTENDEES,
+  attendees
+});
+
+export const requestAttendees = eventId => ({
+  type: eventsConstants.REQUEST_ATTENDEES,
   eventId
 });

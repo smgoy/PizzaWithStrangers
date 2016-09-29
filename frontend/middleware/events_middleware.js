@@ -2,14 +2,16 @@ import { requestEvents,
          createEvent,
          destroyEvent,
          updateEvent,
-         requestUserEvents } from '../util/events_api_util';
+         requestUserEvents,
+         requestAttendees } from '../util/events_api_util';
 import { eventsConstants,
          receiveEvents,
          receiveEventErrors,
          addHostEvent,
          deleteHostEvent,
          clearEventErrors,
-         receiveUserEvents } from '../actions/events_actions';
+         receiveUserEvents,
+         receiveAttendees } from '../actions/events_actions';
 
 const EventsMiddleware = ({dispatch}) => next => action => {
   const errorsCallback = e => {
@@ -47,6 +49,11 @@ const EventsMiddleware = ({dispatch}) => next => action => {
     case eventsConstants.REQUEST_USER_EVENTS: {
       const successCallback = events => dispatch(receiveUserEvents(events));
       requestUserEvents(successCallback);
+      return next(action);
+    }
+    case eventsConstants.REQUEST_ATTENDEES: {
+      const successCallback = attendees => dispatch(receiveAttendees(attendees));
+      requestAttendees(successCallback, action.eventId);
       return next(action);
     }
     default:
