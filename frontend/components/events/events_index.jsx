@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import EventDropdown from './event_dropdown_container';
+import ViewAttendees from '../view_attendees/view_attendees';
 
 class EventsIndex extends React.Component {
   constructor(props) {
@@ -151,6 +152,7 @@ class EventsIndex extends React.Component {
             <p className="event-info">{eventObj.date}</p>
             <p className="event-info">at {eventObj.time}</p>
             {button}
+            <ViewAttendees />
           </div>
         );
       });

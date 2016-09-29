@@ -521,7 +521,7 @@ hr {
 
 .event-join-container {
   text-align: center;
-  margin: 20px 0;
+  margin: 16px 0;
 }
 
 .event-modify-container {
@@ -551,4 +551,29 @@ hr {
 
 .dashboard-text {
   margin-top: 50px;
+}
+
+.show-attendees-wrapper {
+  margin: 0 auto;
+  width: 147.3px;
+}
+
+.show-attendees {
+  border: 0;
+  background-color: inherit;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.show-attendees:hover {
+  color: #C93514;
+}
+
+.custom-modal {
+  overflow-y: initial !important;
+}
+
+.modal-body {
+  height: 250px;
+  overflow-y: auto;
 }

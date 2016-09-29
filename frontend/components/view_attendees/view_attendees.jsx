@@ -1,6 +1,16 @@
 import React from 'react';
+import { ButtonToolbar,
+         Button,
+         Modal } from 'react-bootstrap';
 
 class ViewAttendees extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {show: false};
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
+
   showModal() {
       this.setState({show: true});
     }
@@ -12,9 +22,11 @@ class ViewAttendees extends React.Component {
     render() {
       return (
         <ButtonToolbar>
-          <Button bsStyle="primary" onClick={this.showModal}>
-            See who's attending >
-          </Button>
+          <div className='show-attendees-wrapper'>
+            <Button bsClass="show-attendees" onClick={this.showModal}>
+              See who's attending
+            </Button>
+          </div>
 
           <Modal
             {...this.props}
@@ -26,7 +38,7 @@ class ViewAttendees extends React.Component {
               <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-=             ...
+              This is my ugly modal
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.hideModal}>Close</Button>
@@ -36,3 +48,5 @@ class ViewAttendees extends React.Component {
       );
     }
 }
+
+export default ViewAttendees;
