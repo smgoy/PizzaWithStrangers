@@ -8,8 +8,8 @@
 
 #guest account:
 profile_image = HTTParty.get('http://uifaces.com/api/v1/random')["image_urls"]["normal"]
-User.create!(email: "sam.gyory@gmail.com", password: "guestPassword", pofile_image: profile_image,
-             f_name: "Sam", l_name: "Gyory", city_id: 1, host: true)
+User.create!(email: "john.doe@gmail.com", password: "guestPassword", pofile_image: profile_image,
+             f_name: "John", l_name: "Doe", city_id: 1, host: true)
 
 puts "about to add users"
 

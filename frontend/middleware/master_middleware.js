@@ -12,8 +12,7 @@ const MasterMiddleware = applyMiddleware(
   CitiesMiddleware,
   EventsMiddleware,
   AttendanceMidleware,
-  UserMiddleware,
-  loggerMiddleware
+  UserMiddleware
 );
 
 export default MasterMiddleware;

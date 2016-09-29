@@ -59,13 +59,13 @@ class SessionForm extends React.Component {
 		const guest = {
 										user:
 											{
-												email: "sam.gyory@gmail.com",
+												email: "john.doe@gmail.com",
 												password: "guestPassword"
 											}
 									};
 
 		$(".demo-type-email").typed({
-			strings: ["sam.gyory@gmail.com"],
+			strings: ["john.doe@gmail.com"],
       typeSpeed: 0,
 			callback: () => {
 				$(".demo-type-password").typed({

@@ -2,6 +2,9 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.host = false
+    @user.f_name = @user.f_name.downcase.capitalize
+    @user.l_name = @user.l_name.downcase.capitalize
+    @user.pofile_image = HTTParty.get('http://uifaces.com/api/v1/random')["image_urls"]["normal"]
 
     if @user.save
       sign_in(@user)

@@ -139,8 +139,10 @@ class UserForm extends React.Component {
 
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
-                    <select onChange={this.update.bind(this, "city_id")} className={`form-control${errorClass}`}>
-                      <option value="" disabled selected>Select your city</option>
+                    <select onChange={this.update.bind(this, "city_id")}
+                            className={`form-control${errorClass}`}
+                            defaultValue=''>
+                      <option value="" disabled>Select your city</option>
                       {cityList}
                     </select>
                   </div>
@@ -150,7 +152,11 @@ class UserForm extends React.Component {
 
                 <div className="row">
                   <div className="col-md-10 col-md-offset-1">
-                    <textarea onChange={this.update.bind(this, "description")} placeholder="Tell us about yourself..." className="form-control" rows="5">{this.state.description}</textarea>
+                    <textarea onChange={this.update.bind(this, "description")}
+                              placeholder="Tell us about yourself..."
+                              className="form-control"
+                              rows="5"
+                              defaultValue={this.state.description} />
                   </div>
                 </div>
 

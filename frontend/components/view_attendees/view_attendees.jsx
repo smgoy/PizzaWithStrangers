@@ -25,7 +25,9 @@ class ViewAttendees extends React.Component {
     return Object.keys(attendee).map( id => {
       return (
         <div key={id} className="show-attendees">
-          <img key={`profile-image-${id}`} src={attendee[id].profile_image} />
+          <img key={`profile-image-${id}`}
+               src={attendee[id].profile_image}
+               className='profile-image '/>
           <p key={`name-${id}`}
              className='display-name'>
              {`${attendee[id].f_name} ${attendee[id].l_name}`}
