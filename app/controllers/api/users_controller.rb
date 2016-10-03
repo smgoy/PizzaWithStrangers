@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     @user.host = false
     @user.f_name = @user.f_name.downcase.capitalize
     @user.l_name = @user.l_name.downcase.capitalize
-    @user.pofile_image = HTTParty.get('http://uifaces.com/api/v1/random')["image_urls"]["normal"]
+    @user.pofile_image = HTTParty.get('http://api.randomuser.me/?gender=male')["results"][0]["picture"]["medium"]
 
     if @user.save
       sign_in(@user)
