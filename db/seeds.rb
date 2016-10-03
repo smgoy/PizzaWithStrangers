@@ -7,20 +7,20 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #guest account:
-profile_image = HTTParty.get('http://uifaces.com/api/v1/random')["image_urls"]["normal"]
+profile_image = HTTParty.get('http://api.randomuser.me/?gender=female')["picture"]["medium"]
 User.create!(email: "john.doe@gmail.com", password: "guestPassword", pofile_image: profile_image,
              f_name: "John", l_name: "Doe", city_id: 1, host: true)
 
 puts "about to add users"
 
-100.times do
+HTTParty.get('http://api.randomuser.me/?results=100') do |image|
   f_name = Faker::Name.first_name
   l_name = Faker::Name.last_name
   email = Faker::Internet.email(f_name)
   password = Faker::Internet.password(8)
   city_id = [1,2,3,4,5,6,7,8,9].sample
 
-  profile_image = HTTParty.get('http://uifaces.com/api/v1/random')["image_urls"]["normal"]
+  profile_image = image["picture"]["medium"]
 
   User.create!(email: email, password: password, pofile_image: profile_image,
                f_name: f_name, l_name: l_name, city_id: city_id, host: true)
