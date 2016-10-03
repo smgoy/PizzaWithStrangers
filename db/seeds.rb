@@ -7,13 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #guest account:
-profile_image = HTTParty.get('http://api.randomuser.me/?gender=female')["picture"]["medium"]
+profile_image = HTTParty.get('http://api.randomuser.me/?gender=male')["results"][0]["picture"]["medium"]
 User.create!(email: "john.doe@gmail.com", password: "guestPassword", pofile_image: profile_image,
              f_name: "John", l_name: "Doe", city_id: 1, host: true)
 
 puts "about to add users"
 
-HTTParty.get('http://api.randomuser.me/?results=100') do |image|
+HTTParty.get('http://api.randomuser.me/?results=100')["results"].each do |image|
   f_name = Faker::Name.first_name
   l_name = Faker::Name.last_name
   email = Faker::Internet.email(f_name)
